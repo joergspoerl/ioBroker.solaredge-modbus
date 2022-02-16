@@ -5,8 +5,9 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
-import { SolaredgeDataEntry } from "./solaredge/solaredgeModel";
+import { SolaredgeDataEntry, SolaredgeWriteData } from "./solaredge/solaredgeModel";
 import { SolaredgeTCPModbus } from "./solaredge/solaredgeTCPModbus";
+import { splitIdFromAdapter } from "./solaredge/solaredgeUtil";
 
 // Load your modules here, e.g.:
 // import * as fs from "fs";
@@ -148,12 +149,37 @@ class SolaredgeModbus extends utils.Adapter {
 	 * Is called if a subscribed state changes
 	 */
 	private onStateChange(id: string, state: ioBroker.State | null | undefined): void {
-		if (state) {
-			// The state was changed
-			this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-		} else {
-			// The state was deleted
-			this.log.info(`state ${id} deleted`);
+		try {
+			if (state) {
+				// The state was changed
+				this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+
+				// const twd : SolaredgeWriteData = {
+				// 	value: 0,
+				// }
+				const v = this.solaredge?.SolaredgeData[splitIdFromAdapter(id)];
+				this.log.debug("onStateChange" + JSON.stringify(v))
+				// if (v.writeRegister) {
+				// 	twd.value = state.val;
+				// 	const twshr = v.writeRegister(twd);
+				// 	this.tristar.sendHoldingRegisterQueue.push(twshr);
+				// 	await this.tristar.writeHoldingRegister(this.config);
+				// } else {
+				// 	if (v.writeCoil) {
+				// 		twd.value = state.val;
+				// 		const twc = v.writeCoil(twd);
+				// 		this.tristar.sendCoilQueue.push(twc)
+				// 		await this.tristar.writeCoil(this.config)
+				// 	} else {
+				// 		this.log.error("Model has nor function writeCoil or write Register !!! ")
+				// 	}
+				// }
+			} else {
+				// The state was deleted
+				this.log.info(`state ${id} deleted`);
+			}
+		} catch (Exception) {
+			this.log.error("onStateChange" + JSON.stringify(Exception))
 		}
 	}
 

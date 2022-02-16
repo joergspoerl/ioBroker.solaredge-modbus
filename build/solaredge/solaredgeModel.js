@@ -459,6 +459,82 @@ class SolaredgeModel {
             readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 0xE188),
             value: 0,
         };
+        /* ***************************************************************************************************** */
+        this["control.storage_control_mode"] = {
+            descr: "0-4",
+            unit: "",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 0xE004),
+            writeRegister: (wd) => {
+                return { register: 0xE004, value: wd.value };
+            },
+            value: 0,
+        };
+        this["control.storage_ac_charge_policy"] = {
+            descr: "0-3",
+            unit: "",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 0xE005),
+            value: 0,
+        };
+        this["control.storage_ac_charge_limit"] = {
+            descr: "0-Max_Float",
+            unit: "KWh or %",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("floatsw", 2, tmd, 0xE006),
+            value: 0,
+        };
+        this["control.storage_backup_reserved_setting"] = {
+            descr: "0-100",
+            unit: "%",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("floatsw", 2, tmd, 0xE008),
+            value: 0,
+        };
+        this["control.storage_charge_discharge_default_mode"] = {
+            descr: "0-7",
+            unit: "",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 0xE00A),
+            value: 0,
+        };
+        this["control.remote_control_command_timeout"] = {
+            descr: "0-86400(24h)",
+            unit: "s",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 0xE00B),
+            value: 0,
+        };
+        this["control.remote_control_command_mode"] = {
+            descr: "0-7",
+            unit: "",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 0xE00D),
+            value: 0,
+        };
+        this["control.remote_control_charge_limit"] = {
+            descr: "0- Battery Max Power",
+            unit: "W",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("floatsw", 2, tmd, 0xE00E),
+            value: 0,
+        };
+        this["control.remote_control_dicharge_limit"] = {
+            descr: "0- Battery Max Power",
+            unit: "W",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("floatsw", 2, tmd, 0xE010),
+            value: 0,
+        };
     }
 }
 exports.SolaredgeModel = SolaredgeModel;

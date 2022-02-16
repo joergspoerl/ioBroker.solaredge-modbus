@@ -19,7 +19,7 @@ class SolaredgeTCPModbus {
     }
     async updateSolaredgeData(hr) {
         const tmd = hr;
-        for (const [, value] of Object.entries(this.SolaredgeData)) {
+        for (const [name, value] of Object.entries(this.SolaredgeData)) {
             const v = value;
             if (typeof v.readRegister === "function") {
                 v.valueOld = v.value;
@@ -27,7 +27,7 @@ class SolaredgeTCPModbus {
                     v.value = v.readRegister(tmd);
                 }
                 catch (Exception) {
-                    this.log.error("updateSolaredgeData ERROR " + JSON.stringify(Exception));
+                    this.log.error("updateSolaredgeData ERROR '" + name + "'" + JSON.stringify(v) + " Exception: " + JSON.stringify(Exception));
                 }
             }
         }
@@ -45,6 +45,7 @@ class SolaredgeTCPModbus {
         this.log.debug("readHoldingRegister start");
         await this.connect(adapterConfig, async (client) => {
             await this.readHoldingRegisterBlock(client, 0, 110); // sun-spec block
+            await this.readHoldingRegisterBlock(client, 0xE004, 0xE011 - 0xE004); // control block
             await this.readHoldingRegisterBlock(client, 0xE100, 0xE16C - 0xE100); // battery1 block1
             await this.readHoldingRegisterBlock(client, 0xE16C, 0xE19A - 0xE16C); // battery1 block2
             this.updateSolaredgeData(this.buf);

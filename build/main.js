@@ -26,6 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // you need to create an adapter
 const utils = __importStar(require("@iobroker/adapter-core"));
 const solaredgeTCPModbus_1 = require("./solaredge/solaredgeTCPModbus");
+const solaredgeUtil_1 = require("./solaredge/solaredgeUtil");
 // Load your modules here, e.g.:
 // import * as fs from "fs";
 class SolaredgeModbus extends utils.Adapter {
@@ -144,13 +145,39 @@ class SolaredgeModbus extends utils.Adapter {
      * Is called if a subscribed state changes
      */
     onStateChange(id, state) {
-        if (state) {
-            // The state was changed
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+        var _a;
+        try {
+            if (state) {
+                // The state was changed
+                this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+                // const twd : SolaredgeWriteData = {
+                // 	value: 0,
+                // }
+                const v = (_a = this.solaredge) === null || _a === void 0 ? void 0 : _a.SolaredgeData[(0, solaredgeUtil_1.splitIdFromAdapter)(id)];
+                this.log.debug("onStateChange" + JSON.stringify(v));
+                // if (v.writeRegister) {
+                // 	twd.value = state.val;
+                // 	const twshr = v.writeRegister(twd);
+                // 	this.tristar.sendHoldingRegisterQueue.push(twshr);
+                // 	await this.tristar.writeHoldingRegister(this.config);
+                // } else {
+                // 	if (v.writeCoil) {
+                // 		twd.value = state.val;
+                // 		const twc = v.writeCoil(twd);
+                // 		this.tristar.sendCoilQueue.push(twc)
+                // 		await this.tristar.writeCoil(this.config)
+                // 	} else {
+                // 		this.log.error("Model has nor function writeCoil or write Register !!! ")
+                // 	}
+                // }
+            }
+            else {
+                // The state was deleted
+                this.log.info(`state ${id} deleted`);
+            }
         }
-        else {
-            // The state was deleted
-            this.log.info(`state ${id} deleted`);
+        catch (Exception) {
+            this.log.error("onStateChange" + JSON.stringify(Exception));
         }
     }
 }

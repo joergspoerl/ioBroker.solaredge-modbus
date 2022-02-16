@@ -556,4 +556,99 @@ export class SolaredgeModel {
 		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 0xE188) as number,
 		value: 0,
 	};
+
+
+
+	/* ***************************************************************************************************** */
+
+
+
+
+	"control.storage_control_mode":    SolaredgeDataEntry = {
+		descr: "0-4",
+		unit:  "",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE004) as number,
+		writeRegister: (wd: SolaredgeWriteData) => {
+			return { register: 0xE004, value: wd.value as number }
+		},
+		value: 0,
+	};
+
+	"control.storage_ac_charge_policy":    SolaredgeDataEntry = {
+		descr: "0-3",
+		unit:  "",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE005) as number,
+		value: 0,
+	};
+
+
+	"control.storage_ac_charge_limit":    SolaredgeDataEntry = {
+		descr: "0-Max_Float",
+		unit:  "KWh or %",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("floatsw", 2, tmd, 0xE006) as number,
+		value: 0,
+	};
+
+
+	"control.storage_backup_reserved_setting":    SolaredgeDataEntry = {
+		descr: "0-100",
+		unit:  "%",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("floatsw", 2, tmd, 0xE008) as number,
+		value: 0,
+	};
+
+
+	"control.storage_charge_discharge_default_mode":    SolaredgeDataEntry = {
+		descr: "0-7",
+		unit:  "",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE00A) as number,
+		value: 0,
+	};
+
+	"control.remote_control_command_timeout":    SolaredgeDataEntry = {
+		descr: "0-86400(24h)",
+		unit:  "s",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 0xE00B) as number,
+		value: 0,
+	};
+
+	"control.remote_control_command_mode":    SolaredgeDataEntry = {
+		descr: "0-7",
+		unit:  "",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE00D) as number,
+		value: 0,
+	};
+
+	"control.remote_control_charge_limit":    SolaredgeDataEntry = {
+		descr: "0- Battery Max Power",
+		unit:  "W",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("floatsw", 2, tmd, 0xE00E) as number,
+		value: 0,
+	};
+
+
+	"control.remote_control_dicharge_limit":    SolaredgeDataEntry = {
+		descr: "0- Battery Max Power",
+		unit:  "W",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("floatsw", 2, tmd, 0xE010) as number,
+		value: 0,
+	};
 }
