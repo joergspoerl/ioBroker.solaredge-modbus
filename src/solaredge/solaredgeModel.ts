@@ -570,9 +570,9 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE004) as number,
-		writeRegister: (wd: SolaredgeWriteData) => {
-			return { register: 0xE004, value: wd.value as number }
-		},
+		// writeRegister: (wd: SolaredgeWriteData) => {
+		// 	return { register: 0xE004, value: wd.value as number }
+		// },
 		value: 0,
 	};
 

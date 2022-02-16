@@ -466,9 +466,9 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 0xE004),
-            writeRegister: (wd) => {
-                return { register: 0xE004, value: wd.value };
-            },
+            // writeRegister: (wd: SolaredgeWriteData) => {
+            // 	return { register: 0xE004, value: wd.value as number }
+            // },
             value: 0,
         };
         this["control.storage_ac_charge_policy"] = {
