@@ -1,0 +1,40 @@
+{
+	"cli": true,
+	"target": "directory",
+	"adapterName": "solaredge-modbus",
+	"title": "solaredge-modbus",
+	"description": "solaredge-modbus adapter",
+	"keywords": [
+		"solaredge modbus"
+	],
+	"expert": "no",
+	"features": [
+		"adapter"
+	],
+	"adminFeatures": [],
+	"type": "energy",
+	"startMode": "daemon",
+	"connectionType": "local",
+	"dataSource": "poll",
+	"connectionIndicator": "no",
+	"language": "TypeScript",
+	"adminReact": "no",
+	"tools": [
+		"ESLint"
+	],
+	"releaseScript": "yes",
+	"devServer": "yes",
+	"devServerPort": 9981,
+	"indentation": "Tab",
+	"quotes": "double",
+	"es6class": "yes",
+	"authorName": "joerg spoerl",
+	"authorGithub": "joergspoerl",
+	"authorEmail": "joerg.spoerl@gmx.de",
+	"gitRemoteProtocol": "HTTPS",
+	"gitCommit": "no",
+	"defaultBranch": "main",
+	"license": "MIT License",
+	"dependabot": "no",
+	"creatorVersion": "2.0.2"
+}

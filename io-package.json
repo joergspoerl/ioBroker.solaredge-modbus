@@ -1,0 +1,76 @@
+{
+	"common": {
+		"name": "solaredge-modbus",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "solaredge-modbus",
+		"titleLang": {
+			"en": "solaredge-modbus",
+			"de": "solaredge-modbus",
+			"ru": "Solaredge-Modbus",
+			"pt": "modbus solaredge",
+			"nl": "solaredge-modbus",
+			"fr": "solaredge-modbus",
+			"it": "solaredge-modbus",
+			"es": "solaredge-modbus",
+			"pl": "solaredge-modbus",
+			"zh-cn": "solaredge-modbus"
+		},
+		"desc": {
+			"en": "solaredge-modbus adapter",
+			"de": "Solaredge-Modbus-Adapter",
+			"ru": "адаптер Solaredge-Modbus",
+			"pt": "adaptador modbus solaredge",
+			"nl": "solaredge-modbus-adapter",
+			"fr": "adaptateur solaredge-modbus",
+			"it": "adattatore solaredge-modbus",
+			"es": "adaptador solaredge-modbus",
+			"pl": "adapter solaredge-modbus",
+			"zh-cn": "solaredge-modbus 适配器"
+		},
+		"authors": [
+			"joerg spoerl <joerg.spoerl@gmx.de>"
+		],
+		"keywords": [
+			"solaredge modbus"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "build/main.js",
+		"icon": "solaredge-modbus.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/joergspoerl/ioBroker.solaredge-modbus/main/admin/solaredge-modbus.png",
+		"readme": "https://github.com/joergspoerl/ioBroker.solaredge-modbus/blob/main/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "energy",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "poll",
+		"materialize": true,
+		"dependencies": [
+			{
+				"js-controller": ">=2.0.0"
+			}
+		]
+	},
+	"native": {
+		"option1": true,
+		"option2": "42"
+	},
+	"objects": [],
+	"instanceObjects": []
+}
