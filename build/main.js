@@ -108,6 +108,10 @@ class SolaredgeModbus extends utils.Adapter {
     async updateStates() {
         try {
             if (this.solaredge) {
+                this.log.debug("writeHoldingRegister start");
+                await this.solaredge.writeHoldingRegister(this.config);
+                await this.sleep(1000);
+                this.log.debug("writeHoldingRegister end");
                 await this.solaredge.readHoldingRegister(this.config);
                 for (const [key, value] of Object.entries(this.solaredge.SolaredgeData)) {
                     const v = value;
@@ -145,22 +149,21 @@ class SolaredgeModbus extends utils.Adapter {
      * Is called if a subscribed state changes
      */
     onStateChange(id, state) {
-        var _a;
+        var _a, _b;
         try {
             if (state) {
                 // The state was changed
                 this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-                // const twd : SolaredgeWriteData = {
-                // 	value: 0,
-                // }
                 const v = (_a = this.solaredge) === null || _a === void 0 ? void 0 : _a.SolaredgeData[(0, solaredgeUtil_1.splitIdFromAdapter)(id)];
                 this.log.debug("onStateChange" + JSON.stringify(v));
-                // if (v.writeRegister) {
-                // 	twd.value = state.val;
-                // 	const twshr = v.writeRegister(twd);
-                // 	this.tristar.sendHoldingRegisterQueue.push(twshr);
-                // 	await this.tristar.writeHoldingRegister(this.config);
-                // } else {
+                if (v && v.writeRegister) {
+                    const queueEntry = v.writeRegister({
+                        value: state.val,
+                    });
+                    (_b = this.solaredge) === null || _b === void 0 ? void 0 : _b.sendHoldingRegisterQueue.push(queueEntry);
+                    // await this.solaredge?.writeHoldingRegister(this.config);
+                }
+                // else {
                 // 	if (v.writeCoil) {
                 // 		twd.value = state.val;
                 // 		const twc = v.writeCoil(twd);

@@ -1,6 +1,6 @@
 // Solaredge MODBUS
 
-import { SolaredgeHoldingRegister, SolaredgeDataEntry, SolaredgeModel, SolaredgeWriteSingleCoil, SolaredgeWriteSingleHoldingRegister } from "./solaredgeModel";
+import { SolaredgeHoldingRegister, SolaredgeDataEntry, SolaredgeModel, SolaredgeWriteSingleCoil, SolaredgeWriteMultipleHoldingRegister } from "./solaredgeModel";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 // create a tcp modbus client
@@ -13,7 +13,7 @@ export class SolaredgeTCPModbus {
 	buf: Buffer = Buffer.alloc(this.bufferSize * 2)
 
 	SolaredgeData = new SolaredgeModel();
-	sendHoldingRegisterQueue: Array<SolaredgeWriteSingleHoldingRegister> = []
+	sendHoldingRegisterQueue: Array<SolaredgeWriteMultipleHoldingRegister> = []
 	sendCoilQueue: Array<SolaredgeWriteSingleCoil> = []
 
 
@@ -45,8 +45,9 @@ export class SolaredgeTCPModbus {
 		await this.connect(adapterConfig, async (client) => {
 			while (this.sendHoldingRegisterQueue.length > 0) {
 				const item = this.sendHoldingRegisterQueue.pop()
-				const response = await client.writeSingleRegister(item?.register, item?.value)
-				this.log.debug("response writeSingleRegister " + JSON.stringify(response))
+				this.log.debug("request writeSingleRegister " + JSON.stringify(item))
+				// const response = await client.writeSingleRegister(item?.register, item?.value)
+				// this.log.debug("response writeSingleRegister " + JSON.stringify(response))
 			}
 		})
 	}
@@ -78,16 +79,16 @@ export class SolaredgeTCPModbus {
 		const b: Buffer = Buffer.from(block.response._body._valuesAsBuffer)
 		b.copy(this.buf, start * 2)
 	}
-	async writeCoil(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
+	// async writeCoil(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
 
-		await this.connect(adapterConfig, async (client) => {
-			while (this.sendCoilQueue.length > 0) {
-				const item = this.sendCoilQueue.pop()
-				const response = await client.writeSingleCoil(item?.register, item?.value == 1 ? true : false)
-				this.log.debug("response writeCoil " + JSON.stringify(response))
-			}
-		})
-	}
+	// 	await this.connect(adapterConfig, async (client) => {
+	// 		while (this.sendCoilQueue.length > 0) {
+	// 			const item = this.sendCoilQueue.pop()
+	// 			const response = await client.writeSingleCoil(item?.register, item?.value == 1 ? true : false)
+	// 			this.log.debug("response writeCoil " + JSON.stringify(response))
+	// 		}
+	// 	})
+	// }
 
 	async connect(adapterConfig: ioBroker.AdapterConfig, callback: (client: any) => Promise<void>): Promise<any> {
 		const config = adapterConfig

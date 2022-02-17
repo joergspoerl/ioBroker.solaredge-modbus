@@ -5,7 +5,7 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
-import { SolaredgeDataEntry, SolaredgeWriteData } from "./solaredge/solaredgeModel";
+import { SolaredgeDataEntry } from "./solaredge/solaredgeModel";
 import { SolaredgeTCPModbus } from "./solaredge/solaredgeTCPModbus";
 import { splitIdFromAdapter } from "./solaredge/solaredgeUtil";
 
@@ -108,6 +108,12 @@ class SolaredgeModbus extends utils.Adapter {
 	private async updateStates(): Promise<void> {
 		try {
 			if (this.solaredge) {
+
+				this.log.debug("writeHoldingRegister start")
+				await this.solaredge.writeHoldingRegister(this.config)
+				await this.sleep(1000)
+				this.log.debug("writeHoldingRegister end")
+
 				await this.solaredge.readHoldingRegister(this.config)
 
 				for (const [key, value] of Object.entries(this.solaredge.SolaredgeData)) {
@@ -154,17 +160,18 @@ class SolaredgeModbus extends utils.Adapter {
 				// The state was changed
 				this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 
-				// const twd : SolaredgeWriteData = {
-				// 	value: 0,
-				// }
+
 				const v = this.solaredge?.SolaredgeData[splitIdFromAdapter(id)];
 				this.log.debug("onStateChange" + JSON.stringify(v))
-				// if (v.writeRegister) {
-				// 	twd.value = state.val;
-				// 	const twshr = v.writeRegister(twd);
-				// 	this.tristar.sendHoldingRegisterQueue.push(twshr);
-				// 	await this.tristar.writeHoldingRegister(this.config);
-				// } else {
+				if (v && v.writeRegister) {
+					const queueEntry = v.writeRegister({
+						value: state.val,
+					});
+					this.solaredge?.sendHoldingRegisterQueue.push(queueEntry);
+					// await this.solaredge?.writeHoldingRegister(this.config);
+				}
+
+				// else {
 				// 	if (v.writeCoil) {
 				// 		twd.value = state.val;
 				// 		const twc = v.writeCoil(twd);

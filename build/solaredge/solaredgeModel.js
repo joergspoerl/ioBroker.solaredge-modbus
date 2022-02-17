@@ -281,7 +281,7 @@ class SolaredgeModel {
             role: "value",
             type: "string",
             readRegister: (tmd) => (0, common_1.extractValue)("string", 16, tmd, 0xE100),
-            value: 0,
+            value: "",
         };
         this["battery.model"] = {
             descr: "Battery 1 Model",
@@ -289,7 +289,7 @@ class SolaredgeModel {
             role: "value",
             type: "string",
             readRegister: (tmd) => (0, common_1.extractValue)("string", 16, tmd, 0xE110),
-            value: 0,
+            value: "",
         };
         this["battery.firmware_version"] = {
             descr: "Battery 1 Firmware Version",
@@ -297,7 +297,7 @@ class SolaredgeModel {
             role: "value",
             type: "string",
             readRegister: (tmd) => (0, common_1.extractValue)("string", 16, tmd, 0xE120),
-            value: 0,
+            value: "",
         };
         this["battery.serial_number"] = {
             descr: "Battery 1 Serial Number",
@@ -305,7 +305,7 @@ class SolaredgeModel {
             role: "value",
             type: "string",
             readRegister: (tmd) => (0, common_1.extractValue)("string", 16, tmd, 0xE130),
-            value: 0,
+            value: "",
         };
         this["battery.device_id"] = {
             descr: "Battery 1 Device ID",

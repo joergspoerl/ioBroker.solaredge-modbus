@@ -1,4 +1,4 @@
-import { extractValue } from "./common";
+import { extractValue, writeValue } from "./common";
 // import { round, signedToInteger } from "./solaredgeUtil";
 
 export interface SolaredgeDataEntry {
@@ -7,7 +7,7 @@ export interface SolaredgeDataEntry {
 	role: ioBrokerRole;
 	type: ioBroker.CommonType //'number' | 'string' | 'boolean' | 'array' | 'object' | 'mixed' | 'file'
 	readRegister?: (SolaredgeModbusData: Buffer) => SolaredgePropertyType;
-	writeRegister?: (twd: SolaredgeWriteData) => SolaredgeWriteSingleHoldingRegister;
+	writeRegister?: (twd: SolaredgeWriteData) => SolaredgeWriteMultipleHoldingRegister;
 	writeCoil?: (twd: SolaredgeWriteData) => SolaredgeWriteSingleCoil
 	value: SolaredgePropertyType;
 	valueOld?: SolaredgePropertyType;
@@ -19,9 +19,9 @@ export type SolaredgeHoldingRegister = Buffer
 export interface SolaredgeWriteData  {
 	value: SolaredgePropertyType,
 }
-export interface SolaredgeWriteSingleHoldingRegister {
+export interface SolaredgeWriteMultipleHoldingRegister {
 	register: number;
-	value: number
+	value: Buffer
 }
 
 export interface SolaredgeWriteSingleCoil {
@@ -352,7 +352,7 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "string",
 		readRegister:  (tmd: Buffer) =>  extractValue("string", 16, tmd, 0xE100) as number,
-		value: 0,
+		value: "",
 	};
 
 	"battery.model":    SolaredgeDataEntry = {
@@ -361,7 +361,7 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "string",
 		readRegister:  (tmd: Buffer) =>  extractValue("string", 16, tmd, 0xE110) as number,
-		value: 0,
+		value: "",
 	};
 
 	"battery.firmware_version":    SolaredgeDataEntry = {
@@ -370,7 +370,7 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "string",
 		readRegister:  (tmd: Buffer) =>  extractValue("string", 16, tmd, 0xE120) as number,
-		value: 0,
+		value: "",
 	};
 
 	"battery.serial_number":    SolaredgeDataEntry = {
@@ -379,7 +379,7 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "string",
 		readRegister:  (tmd: Buffer) =>  extractValue("string", 16, tmd, 0xE130) as number,
-		value: 0,
+		value: "",
 	};
 
 	"battery.device_id":    SolaredgeDataEntry = {
@@ -570,9 +570,9 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE004) as number,
-		// writeRegister: (wd: SolaredgeWriteData) => {
-		// 	return { register: 0xE004, value: wd.value as number }
-		// },
+		writeRegister: (wd: SolaredgeWriteData) => {
+			return { register: 0xE004, value: writeValue("uint16be", wd.value) }
+		},
 		value: 0,
 	};
 

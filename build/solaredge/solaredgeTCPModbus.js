@@ -36,8 +36,9 @@ class SolaredgeTCPModbus {
         await this.connect(adapterConfig, async (client) => {
             while (this.sendHoldingRegisterQueue.length > 0) {
                 const item = this.sendHoldingRegisterQueue.pop();
-                const response = await client.writeSingleRegister(item === null || item === void 0 ? void 0 : item.register, item === null || item === void 0 ? void 0 : item.value);
-                this.log.debug("response writeSingleRegister " + JSON.stringify(response));
+                this.log.debug("request writeSingleRegister " + JSON.stringify(item));
+                // const response = await client.writeSingleRegister(item?.register, item?.value)
+                // this.log.debug("response writeSingleRegister " + JSON.stringify(response))
             }
         });
     }
@@ -62,15 +63,15 @@ class SolaredgeTCPModbus {
         const b = Buffer.from(block.response._body._valuesAsBuffer);
         b.copy(this.buf, start * 2);
     }
-    async writeCoil(adapterConfig) {
-        await this.connect(adapterConfig, async (client) => {
-            while (this.sendCoilQueue.length > 0) {
-                const item = this.sendCoilQueue.pop();
-                const response = await client.writeSingleCoil(item === null || item === void 0 ? void 0 : item.register, (item === null || item === void 0 ? void 0 : item.value) == 1 ? true : false);
-                this.log.debug("response writeCoil " + JSON.stringify(response));
-            }
-        });
-    }
+    // async writeCoil(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
+    // 	await this.connect(adapterConfig, async (client) => {
+    // 		while (this.sendCoilQueue.length > 0) {
+    // 			const item = this.sendCoilQueue.pop()
+    // 			const response = await client.writeSingleCoil(item?.register, item?.value == 1 ? true : false)
+    // 			this.log.debug("response writeCoil " + JSON.stringify(response))
+    // 		}
+    // 	})
+    // }
     async connect(adapterConfig, callback) {
         const config = adapterConfig;
         return new Promise((resolve, reject) => {
