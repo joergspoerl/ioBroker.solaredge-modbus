@@ -466,9 +466,10 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 0xE004),
-            // writeRegister: (wd: SolaredgeWriteData) => {
-            // 	return { register: 0xE004, value: wd.value as number }
-            // },
+            writeRegister: (wd) => {
+                const value = typeof wd.value == "number" ? wd.value : 0;
+                return { register: 0xE004, value: (0, common_1.writeValue)("uint16be", value) };
+            },
             value: 0,
         };
         this["control.storage_ac_charge_policy"] = {
@@ -477,6 +478,10 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 0xE005),
+            writeRegister: (wd) => {
+                const value = typeof wd.value == "number" ? wd.value : 0;
+                return { register: 0xE005, value: (0, common_1.writeValue)("uint16be", value) };
+            },
             value: 0,
         };
         this["control.storage_ac_charge_limit"] = {
@@ -485,6 +490,10 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("floatsw", 2, tmd, 0xE006),
+            writeRegister: (wd) => {
+                const value = typeof wd.value == "number" ? wd.value : 0;
+                return { register: 0xE006, value: (0, common_1.writeValue)("floatsw", value) };
+            },
             value: 0,
         };
         this["control.storage_backup_reserved_setting"] = {
@@ -493,6 +502,10 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("floatsw", 2, tmd, 0xE008),
+            writeRegister: (wd) => {
+                const value = typeof wd.value == "number" ? wd.value : 0;
+                return { register: 0xE008, value: (0, common_1.writeValue)("floatsw", value) };
+            },
             value: 0,
         };
         this["control.storage_charge_discharge_default_mode"] = {
@@ -501,6 +514,10 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 0xE00A),
+            writeRegister: (wd) => {
+                const value = typeof wd.value == "number" ? wd.value : 0;
+                return { register: 0xE00A, value: (0, common_1.writeValue)("uint16be", value) };
+            },
             value: 0,
         };
         this["control.remote_control_command_timeout"] = {
@@ -509,6 +526,10 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 0xE00B),
+            writeRegister: (wd) => {
+                const value = typeof wd.value == "number" ? wd.value : 0;
+                return { register: 0xE00B, value: (0, common_1.writeValue)("uint32be", value) };
+            },
             value: 0,
         };
         this["control.remote_control_command_mode"] = {
@@ -517,6 +538,10 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 0xE00D),
+            writeRegister: (wd) => {
+                const value = typeof wd.value == "number" ? wd.value : 0;
+                return { register: 0xE00D, value: (0, common_1.writeValue)("uint16be", value) };
+            },
             value: 0,
         };
         this["control.remote_control_charge_limit"] = {
@@ -525,6 +550,10 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("floatsw", 2, tmd, 0xE00E),
+            writeRegister: (wd) => {
+                const value = typeof wd.value == "number" ? wd.value : 0;
+                return { register: 0xE00E, value: (0, common_1.writeValue)("floatsw", value) };
+            },
             value: 0,
         };
         this["control.remote_control_dicharge_limit"] = {
@@ -533,6 +562,10 @@ class SolaredgeModel {
             role: "value",
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("floatsw", 2, tmd, 0xE010),
+            writeRegister: (wd) => {
+                const value = typeof wd.value == "number" ? wd.value : 0;
+                return { register: 0xE010, value: (0, common_1.writeValue)("floatsw", value) };
+            },
             value: 0,
         };
     }

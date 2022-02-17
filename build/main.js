@@ -50,7 +50,7 @@ class SolaredgeModbus extends utils.Adapter {
         this.solaredge = new solaredgeTCPModbus_1.SolaredgeTCPModbus(this.log);
         this.initObjects();
         // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-        this.subscribeStates("testVariable");
+        this.subscribeStates("control.*");
         // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
         // this.subscribeStates("lights.*");
         // Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
@@ -156,7 +156,7 @@ class SolaredgeModbus extends utils.Adapter {
                 this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
                 const v = (_a = this.solaredge) === null || _a === void 0 ? void 0 : _a.SolaredgeData[(0, solaredgeUtil_1.splitIdFromAdapter)(id)];
                 this.log.debug("onStateChange" + JSON.stringify(v));
-                if (v && v.writeRegister) {
+                if (v && v.writeRegister && state.ack == false) {
                     const queueEntry = v.writeRegister({
                         value: state.val,
                     });

@@ -21,7 +21,7 @@ export interface SolaredgeWriteData  {
 }
 export interface SolaredgeWriteMultipleHoldingRegister {
 	register: number;
-	value: Buffer
+	value: Buffer | undefined
 }
 
 export interface SolaredgeWriteSingleCoil {
@@ -571,7 +571,8 @@ export class SolaredgeModel {
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE004) as number,
 		writeRegister: (wd: SolaredgeWriteData) => {
-			return { register: 0xE004, value: writeValue("uint16be", wd.value) }
+			const value = typeof wd.value == "number" ? wd.value : 0
+			return { register: 0xE004, value: writeValue("uint16be", value) }
 		},
 		value: 0,
 	};
@@ -582,6 +583,10 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE005) as number,
+		writeRegister: (wd: SolaredgeWriteData) => {
+			const value = typeof wd.value == "number" ? wd.value : 0
+			return { register: 0xE005, value: writeValue("uint16be", value) }
+		},
 		value: 0,
 	};
 
@@ -592,6 +597,10 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("floatsw", 2, tmd, 0xE006) as number,
+		writeRegister: (wd: SolaredgeWriteData) => {
+			const value = typeof wd.value == "number" ? wd.value : 0
+			return { register: 0xE006, value: writeValue("floatsw", value) }
+		},
 		value: 0,
 	};
 
@@ -602,6 +611,10 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("floatsw", 2, tmd, 0xE008) as number,
+		writeRegister: (wd: SolaredgeWriteData) => {
+			const value = typeof wd.value == "number" ? wd.value : 0
+			return { register: 0xE008, value: writeValue("floatsw", value) }
+		},
 		value: 0,
 	};
 
@@ -612,6 +625,10 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE00A) as number,
+		writeRegister: (wd: SolaredgeWriteData) => {
+			const value = typeof wd.value == "number" ? wd.value : 0
+			return { register: 0xE00A, value: writeValue("uint16be", value) }
+		},
 		value: 0,
 	};
 
@@ -621,6 +638,10 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 0xE00B) as number,
+		writeRegister: (wd: SolaredgeWriteData) => {
+			const value = typeof wd.value == "number" ? wd.value : 0
+			return { register: 0xE00B, value: writeValue("uint32be", value) }
+		},
 		value: 0,
 	};
 
@@ -630,6 +651,10 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 0xE00D) as number,
+		writeRegister: (wd: SolaredgeWriteData) => {
+			const value = typeof wd.value == "number" ? wd.value : 0
+			return { register: 0xE00D, value: writeValue("uint16be", value) }
+		},
 		value: 0,
 	};
 
@@ -639,6 +664,10 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("floatsw", 2, tmd, 0xE00E) as number,
+		writeRegister: (wd: SolaredgeWriteData) => {
+			const value = typeof wd.value == "number" ? wd.value : 0
+			return { register: 0xE00E, value: writeValue("floatsw", value) }
+		},
 		value: 0,
 	};
 
@@ -649,6 +678,10 @@ export class SolaredgeModel {
 		role:  "value",
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("floatsw", 2, tmd, 0xE010) as number,
+		writeRegister: (wd: SolaredgeWriteData) => {
+			const value = typeof wd.value == "number" ? wd.value : 0
+			return { register: 0xE010, value: writeValue("floatsw", value) }
+		},
 		value: 0,
 	};
 }

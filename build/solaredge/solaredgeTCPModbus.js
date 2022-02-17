@@ -37,8 +37,8 @@ class SolaredgeTCPModbus {
             while (this.sendHoldingRegisterQueue.length > 0) {
                 const item = this.sendHoldingRegisterQueue.pop();
                 this.log.debug("request writeSingleRegister " + JSON.stringify(item));
-                // const response = await client.writeSingleRegister(item?.register, item?.value)
-                // this.log.debug("response writeSingleRegister " + JSON.stringify(response))
+                const response = await client.writeMultipleRegisters(item === null || item === void 0 ? void 0 : item.register, item === null || item === void 0 ? void 0 : item.value);
+                this.log.debug("response writeSingleRegister " + JSON.stringify(response));
             }
         });
     }
