@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "news": {
+            "0.0.4": {
+                "en": "fix initObjects",
+                "de": "initObjects reparieren",
+                "ru": "исправить initObjects",
+                "pt": "corrigir initObjects",
+                "nl": "repareer initObjects",
+                "fr": "réparer initObjects",
+                "it": "correggere initObjects",
+                "es": "corregir initObjects",
+                "pl": "napraw initObjects",
+                "zh-cn": "修复初始化对象"
+            },
             "0.0.3": {
                 "en": "extend data model with states",
                 "de": "Datenmodell um Zustände erweitern",

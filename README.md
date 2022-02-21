@@ -100,7 +100,7 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 0.0.4 (2022-02-21)
 fix initObjects
 
 ### 0.0.3 (2022-02-21)
