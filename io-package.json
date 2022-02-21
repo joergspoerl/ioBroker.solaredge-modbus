@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "news": {
+            "0.0.3": {
+                "en": "extend data model with states",
+                "de": "Datenmodell um Zustände erweitern",
+                "ru": "расширить модель данных с состояниями",
+                "pt": "estender modelo de dados com estados",
+                "nl": "datamodel uitbreiden met toestanden",
+                "fr": "étendre le modèle de données avec des états",
+                "it": "estendere il modello di dati con gli stati",
+                "es": "extender el modelo de datos con estados",
+                "pl": "rozszerzyć model danych o stany",
+                "zh-cn": "用状态扩展数据模型"
+            },
             "0.0.2": {
                 "en": "* initial release\n\n## License\nMIT License\n\nCopyright (c) 2022 joerg spoerl <joerg.spoerl@gmx.de>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
                 "de": "* Erstveröffentlichung\n\n## Lizenz\nMIT-Lizenz\n\nCopyright (c) 2022 Jörg Spoerl <joerg.spoerl@gmx.de>\n\nHiermit wird jeder Person kostenlos die Erlaubnis erteilt, eine Kopie zu erhalten\ndieser Software und zugehörigen Dokumentationsdateien (die „Software“) zu behandeln\nin der Software ohne Einschränkung, einschließlich, aber nicht beschränkt auf die Rechte\nzu verwenden, zu kopieren, zu modifizieren, zusammenzuführen, zu veröffentlichen, zu verteilen, unterzulizenzieren und/oder zu verkaufen\nKopien der Software und Personen, denen die Software gehört, zu gestatten\ndazu eingerichtet werden, unter folgenden Bedingungen:\n\nDer obige Urheberrechtshinweis und dieser Genehmigungshinweis müssen in allen enthalten sein\nKopien oder wesentliche Teile der Software.\n\nDIE SOFTWARE WIRD \"WIE BESEHEN\" BEREITGESTELLT, OHNE JEGLICHE GEWÄHRLEISTUNG, AUSDRÜCKLICH ODER\nSTILLSCHWEIGEND, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE GEWÄHRLEISTUNG DER MARKTGÄNGIGKEIT,\nEIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND NICHTVERLETZUNG VON RECHTEN DRITTER. IN KEINEM FALL SIND DIE\nAUTOREN ODER URHEBERRECHTSINHABER HAFTEN FÜR JEGLICHE ANSPRÜCHE, SCHÄDEN ODER ANDERE\nHAFTUNG, OB AUS VERTRAG, DELIKT ODER ANDERWEITIG, ENTSTEHEND AUS,\nAUS ODER IM ZUSAMMENHANG MIT DER SOFTWARE ODER DER VERWENDUNG ODER ANDEREN HANDLUNGEN MIT DER\nSOFTWARE.",
