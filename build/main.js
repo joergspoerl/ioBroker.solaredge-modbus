@@ -85,8 +85,9 @@ class SolaredgeModbus extends utils.Adapter {
                         type: v.type,
                         role: "state",
                         read: true,
-                        write: false,
+                        write: v.writeRegister ? true : false,
                         unit: v.unit,
+                        states: v.states
                     },
                     native: {},
                 });

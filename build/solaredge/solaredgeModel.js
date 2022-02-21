@@ -82,6 +82,11 @@ class SolaredgeModel {
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 69),
             value: 0,
+            states: {
+                "101": "single phase",
+                "102": "split phase",
+                "103": "three phase"
+            }
         };
         // "ac.C_SunSpec_Length":    SolaredgeDataEntry = {
         // 	descr: "50 = Length of model block",
@@ -266,6 +271,16 @@ class SolaredgeModel {
             type: "number",
             readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 107),
             value: 0,
+            states: {
+                "1": "Off",
+                "2": "Sleeping (auto-shutdown) – Night mode",
+                "3": "Grid Monitoring/wake-up",
+                "4": "Inverter is ON and producing power",
+                "5": "Production (curtailed)",
+                "6": "Shutting down",
+                "7": "Fault",
+                "8": "Maintenance/setup"
+            }
         };
         this["state.I_Status_Vendor"] = {
             descr: "Vendor-defined operating state and error codes. For error description, meaning and troubleshooting, refer to the SolarEdge Installation Guide.",
@@ -471,6 +486,13 @@ class SolaredgeModel {
                 return { register: 0xE004, value: (0, common_1.writeValue)("uint16be", value) };
             },
             value: 0,
+            states: {
+                "0": "Disabled",
+                "1": "Maximize Self Consumption - meter required",
+                "2": "Time of Use (Profile programming) - meter required",
+                "3": "Backup Only",
+                "4": "Remote Control"
+            }
         };
         this["control.storage_ac_charge_policy"] = {
             descr: "0-3",
@@ -483,6 +505,12 @@ class SolaredgeModel {
                 return { register: 0xE005, value: (0, common_1.writeValue)("uint16be", value) };
             },
             value: 0,
+            states: {
+                "0": "Disable",
+                "1": "Always allowed",
+                "2": "Fixed Energy Limit (for US regulation)",
+                "3": "Percent of Production (for US regulation)",
+            }
         };
         this["control.storage_ac_charge_limit"] = {
             descr: "0-Max_Float",
@@ -519,6 +547,15 @@ class SolaredgeModel {
                 return { register: 0xE00A, value: (0, common_1.writeValue)("uint16be", value) };
             },
             value: 0,
+            states: {
+                "0": "Off",
+                "1": "Charge excess PV power only",
+                "2": "Charge from PV first, before producing power to the AC",
+                "3": "Charge from PV+AC according to the max battery power",
+                "4": "Maximize export – discharge battery to meet max inverter AC limit",
+                "5": "Discharge to meet loads consumption. Discharging to the grid is not allowed",
+                "7": "Maximize self-consumption",
+            }
         };
         this["control.remote_control_command_timeout"] = {
             descr: "0-86400(24h)",
@@ -543,6 +580,15 @@ class SolaredgeModel {
                 return { register: 0xE00D, value: (0, common_1.writeValue)("uint16be", value) };
             },
             value: 0,
+            states: {
+                "0": "Off",
+                "1": "Charge excess PV power only",
+                "2": "Charge from PV first, before producing power to the AC",
+                "3": "Charge from PV+AC according to the max battery power",
+                "4": "Maximize export – discharge battery to meet max inverter AC limit",
+                "5": "Discharge to meet loads consumption. Discharging to the grid is not allowed",
+                "7": "Maximize self-consumption",
+            }
         };
         this["control.remote_control_charge_limit"] = {
             descr: "0- Battery Max Power",
