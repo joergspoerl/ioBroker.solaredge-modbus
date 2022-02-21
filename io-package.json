@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "news": {
+            "0.0.5": {
+                "en": "fix build files",
+                "de": "Build-Dateien reparieren",
+                "ru": "исправить файлы сборки",
+                "pt": "corrigir arquivos de compilação",
+                "nl": "build-bestanden repareren",
+                "fr": "réparer les fichiers de construction",
+                "it": "correggere i file di build",
+                "es": "arreglar archivos de compilación",
+                "pl": "napraw pliki kompilacji",
+                "zh-cn": "修复构建文件"
+            },
             "0.0.4": {
                 "en": "fix initObjects",
                 "de": "initObjects reparieren",
