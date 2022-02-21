@@ -11,6 +11,7 @@ export interface SolaredgeDataEntry {
 	writeCoil?: (twd: SolaredgeWriteData) => SolaredgeWriteSingleCoil
 	value: SolaredgePropertyType;
 	valueOld?: SolaredgePropertyType;
+	states?: { [key: string]: string }
 }
 
 export type SolaredgePropertyType = number | string | boolean | null; // entspricht ioBroker.StateValue
@@ -125,6 +126,11 @@ export class SolaredgeModel {
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 69),
 		value: 0,
+		states: {
+			"101": "single phase",
+			"102": "split phase",
+			"103": "three phase"
+		}
 	};
 
 
@@ -335,6 +341,16 @@ export class SolaredgeModel {
 		type: "number",
 		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 107) as number,
 		value: 0,
+		states: {
+			"1": "Off",
+			"2": "Sleeping (auto-shutdown) – Night mode",
+			"3": "Grid Monitoring/wake-up",
+			"4": "Inverter is ON and producing power",
+			"5": "Production (curtailed)",
+			"6": "Shutting down",
+			"7": "Fault",
+			"8": "Maintenance/setup"
+		}
 	};
 
 	"state.I_Status_Vendor":    SolaredgeDataEntry = {
@@ -575,6 +591,13 @@ export class SolaredgeModel {
 			return { register: 0xE004, value: writeValue("uint16be", value) }
 		},
 		value: 0,
+		states:  {
+			"0": "Disabled",
+			"1": "Maximize Self Consumption - meter required",
+			"2": "Time of Use (Profile programming) - meter required",
+			"3": "Backup Only",
+			"4": "Remote Control"
+		}
 	};
 
 	"control.storage_ac_charge_policy":    SolaredgeDataEntry = {
@@ -588,6 +611,12 @@ export class SolaredgeModel {
 			return { register: 0xE005, value: writeValue("uint16be", value) }
 		},
 		value: 0,
+		states: {
+			"0": "Disable",
+			"1": "Always allowed",
+			"2": "Fixed Energy Limit (for US regulation)",
+			"3": "Percent of Production (for US regulation)",
+		}
 	};
 
 
@@ -630,6 +659,15 @@ export class SolaredgeModel {
 			return { register: 0xE00A, value: writeValue("uint16be", value) }
 		},
 		value: 0,
+		states: {
+			"0": "Off",
+			"1": "Charge excess PV power only",
+			"2": "Charge from PV first, before producing power to the AC",
+			"3": "Charge from PV+AC according to the max battery power",
+			"4": "Maximize export – discharge battery to meet max inverter AC limit",
+			"5": "Discharge to meet loads consumption. Discharging to the grid is not allowed",
+			"7": "Maximize self-consumption",
+		}
 	};
 
 	"control.remote_control_command_timeout":    SolaredgeDataEntry = {
@@ -656,6 +694,16 @@ export class SolaredgeModel {
 			return { register: 0xE00D, value: writeValue("uint16be", value) }
 		},
 		value: 0,
+		states: {
+			"0": "Off",
+			"1": "Charge excess PV power only",
+			"2": "Charge from PV first, before producing power to the AC",
+			"3": "Charge from PV+AC according to the max battery power",
+			"4": "Maximize export – discharge battery to meet max inverter AC limit",
+			"5": "Discharge to meet loads consumption. Discharging to the grid is not allowed",
+			"7": "Maximize self-consumption",
+		}
+
 	};
 
 	"control.remote_control_charge_limit":    SolaredgeDataEntry = {
