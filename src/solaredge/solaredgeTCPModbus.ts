@@ -40,23 +40,18 @@ export class SolaredgeTCPModbus {
 		}
 	}
 
-	async writeHoldingRegister(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
+	async readAndWrite(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
+
+		this.log.debug("readAndWrite start")
 
 		await this.connect(adapterConfig, async (client) => {
+
 			while (this.sendHoldingRegisterQueue.length > 0) {
 				const item = this.sendHoldingRegisterQueue.pop()
 				this.log.debug("request writeSingleRegister " + JSON.stringify(item))
 				const response = await client.writeMultipleRegisters(item?.register, item?.value)
 				this.log.debug("response writeSingleRegister " + JSON.stringify(response))
 			}
-		})
-	}
-
-	async readHoldingRegister(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
-
-		this.log.debug("readHoldingRegister start")
-
-		await this.connect(adapterConfig, async (client) => {
 
 			await this.readHoldingRegisterBlock(client, 0, 110)                  // sun-spec block
 			await this.readHoldingRegisterBlock(client, 0xE004, 0xE011 - 0xE004) // control block

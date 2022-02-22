@@ -32,7 +32,8 @@ class SolaredgeTCPModbus {
             }
         }
     }
-    async writeHoldingRegister(adapterConfig) {
+    async readAndWrite(adapterConfig) {
+        this.log.debug("readAndWrite start");
         await this.connect(adapterConfig, async (client) => {
             while (this.sendHoldingRegisterQueue.length > 0) {
                 const item = this.sendHoldingRegisterQueue.pop();
@@ -40,11 +41,6 @@ class SolaredgeTCPModbus {
                 const response = await client.writeMultipleRegisters(item === null || item === void 0 ? void 0 : item.register, item === null || item === void 0 ? void 0 : item.value);
                 this.log.debug("response writeSingleRegister " + JSON.stringify(response));
             }
-        });
-    }
-    async readHoldingRegister(adapterConfig) {
-        this.log.debug("readHoldingRegister start");
-        await this.connect(adapterConfig, async (client) => {
             await this.readHoldingRegisterBlock(client, 0, 110); // sun-spec block
             await this.readHoldingRegisterBlock(client, 0xE004, 0xE011 - 0xE004); // control block
             await this.readHoldingRegisterBlock(client, 0xE100, 0xE16C - 0xE100); // battery1 block1

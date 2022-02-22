@@ -100,6 +100,9 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+change modbus read write logic
+
 ### 0.0.5 (2022-02-21)
 fix build files
 

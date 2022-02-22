@@ -110,12 +110,7 @@ class SolaredgeModbus extends utils.Adapter {
 		try {
 			if (this.solaredge) {
 
-				this.log.debug("writeHoldingRegister start")
-				await this.solaredge.writeHoldingRegister(this.config)
-				await this.sleep(1000)
-				this.log.debug("writeHoldingRegister end")
-
-				await this.solaredge.readHoldingRegister(this.config)
+				await this.solaredge.readAndWrite(this.config)
 
 				for (const [key, value] of Object.entries(this.solaredge.SolaredgeData)) {
 					const v = value as SolaredgeDataEntry;
