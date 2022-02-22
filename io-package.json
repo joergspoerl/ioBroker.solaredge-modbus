@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "news": {
+            "0.0.6": {
+                "en": "change modbus read write logic",
+                "de": "Ändern Sie die Modbus-Lese-Schreib-Logik",
+                "ru": "изменить логику чтения и записи Modbus",
+                "pt": "alterar a lógica de leitura e gravação do modbus",
+                "nl": "modbus wijzigen lezen schrijven logica",
+                "fr": "modifier la logique de lecture écriture modbus",
+                "it": "cambia modbus leggi scrivi logica",
+                "es": "cambiar la lógica de lectura y escritura modbus",
+                "pl": "zmień modbus odczyt logikę zapisu",
+                "zh-cn": "更改 modbus 读写逻辑"
+            },
             "0.0.5": {
                 "en": "fix build files",
                 "de": "Build-Dateien reparieren",
