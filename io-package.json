@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "news": {
+            "0.0.7": {
+                "en": "add first meter model\nreadHoldingRegisterBlock lenght +1 -> letztes Byte fehlte",
+                "de": "erstes Zählermodell hinzufügen\nreadHoldingRegisterBlock length +1 -> letztes Byte fehlt",
+                "ru": "добавить первую модель счетчика\nдлина readHoldingRegisterBlock +1 -> байты",
+                "pt": "adicionar modelo de primeiro medidor\nreadHoldingRegisterBlock lenght +1 -> letztes Byte fehlte",
+                "nl": "voeg eerste meter model toe\nreadHoldingRegisterBloklengte +1 -> letztes Byte fehlte",
+                "fr": "ajouter le premier modèle de compteur\nreadHoldingRegisterBlock length +1 -> letztes Byte fehlte",
+                "it": "aggiungi il modello del primo metro\nreadHoldingRegisterBlock lunghezza +1 -> letztes Byte fehlte",
+                "es": "agregar primer modelo de medidor\nreadHoldingRegisterBlock lenght +1 -> letztes Byte fehlte",
+                "pl": "dodaj model pierwszego licznika\nreadHoldingRegisterBlock length +1 -> letztes Byte fehlte",
+                "zh-cn": "添加第一个仪表模型\nreadHoldingRegisterBlock 长度 +1 -> letztes Byte fehlte"
+            },
             "0.0.6": {
                 "en": "change modbus read write logic",
                 "de": "Ändern Sie die Modbus-Lese-Schreib-Logik",
