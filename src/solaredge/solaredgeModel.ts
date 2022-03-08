@@ -732,4 +732,478 @@ export class SolaredgeModel {
 		},
 		value: 0,
 	};
+
+
+	"meter.1.C_Manufacturer":    SolaredgeDataEntry = {
+		descr: "Meter manufacturer",
+		unit:  "",
+		role:  "value",
+		type: "string",
+		readRegister:  (tmd: Buffer) =>  extractValue("string", 32, tmd, 40123) as string,
+		value: 0,
+	};
+
+	"meter.1.C_Model":    SolaredgeDataEntry = {
+		descr: "Meter model",
+		unit:  "",
+		role:  "value",
+		type: "string",
+		readRegister:  (tmd: Buffer) =>  extractValue("string", 32, tmd, 40139) as string,
+		value: 0,
+	};
+
+	"meter.1.M_AC_Current":    SolaredgeDataEntry = {
+		descr: "AC Current (sum of active phases)",
+		unit:  "A",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40190) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40194) as number),
+		value: 0,
+	};
+
+	"meter.1.M_AC_Current_A":    SolaredgeDataEntry = {
+		descr: "Phase A AC Current",
+		unit:  "A",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40191) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40194) as number),
+		value: 0,
+	};
+
+
+	"meter.1.M_AC_Current_B":    SolaredgeDataEntry = {
+		descr: "Phase B AC Current",
+		unit:  "A",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40192) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40194) as number),
+		value: 0,
+	};
+
+	"meter.1.M_AC_Current_C":    SolaredgeDataEntry = {
+		descr: "Phase C AC Current",
+		unit:  "A",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40193) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40194) as number),
+		value: 0,
+	};
+
+	"meter.1.M_AC_Voltage_L_N":    SolaredgeDataEntry = {
+		descr: "Line to Neutral AC Voltage (average of active phases)",
+		unit:  "V",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40195) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40203) as number),
+		value: 0,
+	};
+
+	"meter.1.M_AC_Voltage_A_N":    SolaredgeDataEntry = {
+		descr: "Phase A to Neutral AC Voltage",
+		unit:  "V",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40196) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40203) as number),
+		value: 0,
+	};
+
+	"meter.1.M_AC_Voltage_B_N":    SolaredgeDataEntry = {
+		descr: "Phase B to Neutral AC Voltage",
+		unit:  "V",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40197) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40203) as number),
+		value: 0,
+	};
+
+	"meter.1.M_AC_Voltage_C_N":    SolaredgeDataEntry = {
+		descr: "Phase C to Neutral AC Voltage",
+		unit:  "V",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40198) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40203) as number),
+		value: 0,
+	};
+
+	"meter.1.M_AC_Voltage_L_L":    SolaredgeDataEntry = {
+		descr: "Line to Line AC Voltage (average of active phases)",
+		unit:  "V",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40199) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40203) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_Voltage_A_B":    SolaredgeDataEntry = {
+		descr: "Phase A to Phase B AC Voltage",
+		unit:  "V",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40200) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40203) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_Voltage_B_C":    SolaredgeDataEntry = {
+		descr: "Phase B to Phase C AC Voltage",
+		unit:  "V",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40201) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40203) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_Voltage_C_A":    SolaredgeDataEntry = {
+		descr: "Phase C to Phase A AC Voltage",
+		unit:  "V",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40202) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40203) as number),
+		value: 0,
+	};
+
+	"meter.1.M_AC_Freq":    SolaredgeDataEntry = {
+		descr: "AC Frequency",
+		unit:  "Hz",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40204) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40205) as number),
+		value: 0,
+	};
+
+	"meter.1.M_AC_Power":    SolaredgeDataEntry = {
+		descr: "Total Real Power (sum of active phases)",
+		unit:  "W",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40206) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40210) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_Power_A":    SolaredgeDataEntry = {
+		descr: "Phase A AC Real Power",
+		unit:  "W",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40207) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40210) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_Power_B":    SolaredgeDataEntry = {
+		descr: "Phase B AC Real Power",
+		unit:  "W",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40208) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40210) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_Power_C":    SolaredgeDataEntry = {
+		descr: "Phase C AC Real Power",
+		unit:  "W",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40209) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40210) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_VA":    SolaredgeDataEntry = {
+		descr: "Total AC Apparent Power (sum of active phases)",
+		unit:  "VA",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40211) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40215) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_VA_A":    SolaredgeDataEntry = {
+		descr: "Phase A AC Apparent Power",
+		unit:  "VA",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40212) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40215) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_VA_B":    SolaredgeDataEntry = {
+		descr: "Phase B AC Apparent Power",
+		unit:  "VA",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40213) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40215) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_VA_C":    SolaredgeDataEntry = {
+		descr: "Phase C AC Apparent Power",
+		unit:  "VA",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40214) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40215) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_VAR":    SolaredgeDataEntry = {
+		descr: "Total AC Reactive Power (sum of active phases)",
+		unit:  "VAR",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40216) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40220) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_VAR_A":    SolaredgeDataEntry = {
+		descr: "Phase A AC Reactive Power",
+		unit:  "VAR",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40217) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40220) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_VAR_B":    SolaredgeDataEntry = {
+		descr: "Phase B AC Reactive Power",
+		unit:  "VAR",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40218) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40220) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_VAR_C":    SolaredgeDataEntry = {
+		descr: "Phase C AC Reactive Power",
+		unit:  "VAR",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40219) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40220) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_PF":    SolaredgeDataEntry = {
+		descr: "Average Power Factor (average of active phases)",
+		unit:  "%",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40221) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40225) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_PF_A":    SolaredgeDataEntry = {
+		descr: "Phase A Power Factor",
+		unit:  "%",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40222) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40225) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_PF_B":    SolaredgeDataEntry = {
+		descr: "Phase A Power Factor",
+		unit:  "%",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40223) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40225) as number),
+		value: 0,
+	};
+	"meter.1.M_AC_PF_C":    SolaredgeDataEntry = {
+		descr: "Phase A Power Factor",
+		unit:  "%",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40224) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40225) as number),
+		value: 0,
+	};
+
+	"meter.1.M_Exported":    SolaredgeDataEntry = {
+		descr: "Total Exported Real Energy",
+		unit:  "Wh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40226) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40242) as number),
+		value: 0,
+	};
+	"meter.1.M_Exported_A":    SolaredgeDataEntry = {
+		descr: "Phase A Exported Real Energy",
+		unit:  "Wh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40228) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40242) as number),
+		value: 0,
+	};
+	"meter.1.M_Exported_B":    SolaredgeDataEntry = {
+		descr: "Phase B Exported Real Energy",
+		unit:  "Wh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40230) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40242) as number),
+		value: 0,
+	};
+	"meter.1.M_Exported_C":    SolaredgeDataEntry = {
+		descr: "Phase C Exported Real Energy",
+		unit:  "Wh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40232) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40242) as number),
+		value: 0,
+	};
+
+	"meter.1.M_Imported":    SolaredgeDataEntry = {
+		descr: "Total Imported Real Energy",
+		unit:  "Wh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40234) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40242) as number),
+		value: 0,
+	};
+	"meter.1.M_Imported_A":    SolaredgeDataEntry = {
+		descr: "Phase A Imported Real Energy",
+		unit:  "Wh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40236) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40242) as number),
+		value: 0,
+	};
+	"meter.1.M_Imported_B":    SolaredgeDataEntry = {
+		descr: "Phase B Imported Real Energy",
+		unit:  "Wh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40238) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40242) as number),
+		value: 0,
+	};
+	"meter.1.M_Imported_C":    SolaredgeDataEntry = {
+		descr: "Phase C Imported Real Energy",
+		unit:  "Wh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40240) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40242) as number),
+		value: 0,
+	};
+
+
+	"meter.1.M_Exported_VA":    SolaredgeDataEntry = {
+		descr: "Total Exported Apparent Energy",
+		unit:  "VAh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40243) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40259) as number),
+		value: 0,
+	};
+	"meter.1.M_Exported_VA_A":    SolaredgeDataEntry = {
+		descr: "Phase A Exported Apparent Energy",
+		unit:  "VAh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40245) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40259) as number),
+		value: 0,
+	};
+	"meter.1.M_Exported_VA_B":    SolaredgeDataEntry = {
+		descr: "Phase B Exported Apparent Energy",
+		unit:  "VAh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40247) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40259) as number),
+		value: 0,
+	};
+	"meter.1.M_Exported_VA_C":    SolaredgeDataEntry = {
+		descr: "Phase C Exported Apparent Energy",
+		unit:  "VAh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40249) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40259) as number),
+		value: 0,
+	};
+
+	"meter.1.M_Imported_VA":    SolaredgeDataEntry = {
+		descr: "Total Imported Apparent Energy",
+		unit:  "VAh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40251) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40259) as number),
+		value: 0,
+	};
+	"meter.1.M_Imported_VA_A":    SolaredgeDataEntry = {
+		descr: "Phase A Imported Apparent Energy",
+		unit:  "VAh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40253) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40259) as number),
+		value: 0,
+	};
+	"meter.1.M_Imported_VA_B":    SolaredgeDataEntry = {
+		descr: "Phase B Imported Apparent Energy",
+		unit:  "VAh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40255) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40259) as number),
+		value: 0,
+	};
+	"meter.1.M_Imported_VA_C":    SolaredgeDataEntry = {
+		descr: "Phase C Imported Apparent Energy",
+		unit:  "VAh",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40257) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40259) as number),
+		value: 0,
+	};
+
+
+	// "meter.1.M_Import_VARh_Q1":    SolaredgeDataEntry = {
+	// 	descr: "Quadrant 1: Total Imported Reactive Energy",
+	// 	unit:  "VARh",
+	// 	role:  "value",
+	// 	type: "number",
+	// 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40260) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+	// 	value: 0,
+	// };
+
+	// "meter.1.M_Import_VARh_Q1A":    SolaredgeDataEntry = {
+	// 	descr: "Phase A - Quadrant 1: Imported Reactive Energy",
+	// 	unit:  "VARh",
+	// 	role:  "value",
+	// 	type: "number",
+	// 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40262) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+	// 	value: 0,
+	// };
+	// "meter.1.M_Import_VARh_Q1B":    SolaredgeDataEntry = {
+	// 	descr: "Phase B - Quadrant 1: Imported Reactive Energy",
+	// 	unit:  "VARh",
+	// 	role:  "value",
+	// 	type: "number",
+	// 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40264) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+	// 	value: 0,
+	// };
+	// "meter.1.M_Import_VARh_Q1C":    SolaredgeDataEntry = {
+	// 	descr: "Phase C - Quadrant 1: Imported Reactive Energy",
+	// 	unit:  "VARh",
+	// 	role:  "value",
+	// 	type: "number",
+	// 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40266) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+	// 	value: 0,
+	// };
+
+	// "meter.1.M_Import_VARh_Q2":    SolaredgeDataEntry = {
+	// 	descr: "Quadrant 2: Total Imported Reactive Energy",
+	// 	unit:  "VARh",
+	// 	role:  "value",
+	// 	type: "number",
+	// 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40268) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+	// 	value: 0,
+	// };
+	// "meter.1.M_Import_VARh_Q2A":    SolaredgeDataEntry = {
+	// 	descr: "Phase A - Quadrant 2: Imported Reactive Energy",
+	// 	unit:  "VARh",
+	// 	role:  "value",
+	// 	type: "number",
+	// 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40270) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+	// 	value: 0,
+	// };
+	// "meter.1.M_Import_VARh_Q2B":    SolaredgeDataEntry = {
+	// 	descr: "Phase B - Quadrant 2: Imported Reactive Energy",
+	// 	unit:  "VARh",
+	// 	role:  "value",
+	// 	type: "number",
+	// 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40272) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+	// 	value: 0,
+	// };
+	// "meter.1.M_Import_VARh_Q2C":    SolaredgeDataEntry = {
+	// 	descr: "Phase C - Quadrant 2: Imported Reactive Energy",
+	// 	unit:  "VARh",
+	// 	role:  "value",
+	// 	type: "number",
+	// 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40274) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+	// 	value: 0,
+	// };
+
+	"meter.1.M_Events":    SolaredgeDataEntry = {
+		descr: "See M_EVENT_ flags. 0 = nts.",
+		unit:  "",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40293) as number,
+		value: 0,
+	};
+
 }

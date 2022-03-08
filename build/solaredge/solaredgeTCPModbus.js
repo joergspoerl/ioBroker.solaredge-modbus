@@ -41,10 +41,12 @@ class SolaredgeTCPModbus {
                 const response = await client.writeMultipleRegisters(item === null || item === void 0 ? void 0 : item.register, item === null || item === void 0 ? void 0 : item.value);
                 this.log.debug("response writeSingleRegister " + JSON.stringify(response));
             }
-            await this.readHoldingRegisterBlock(client, 0, 110); // sun-spec block
-            await this.readHoldingRegisterBlock(client, 0xE004, 0xE011 - 0xE004); // control block
+            await this.readHoldingRegisterBlock(client, 0, 111); // sun-spec block
+            await this.readHoldingRegisterBlock(client, 0xE004, 0xE012 - 0xE004); // control block
             await this.readHoldingRegisterBlock(client, 0xE100, 0xE16C - 0xE100); // battery1 block1
             await this.readHoldingRegisterBlock(client, 0xE16C, 0xE19A - 0xE16C); // battery1 block2
+            await this.readHoldingRegisterBlock(client, 40123, 40226 - 40123); // meter 1 block1
+            await this.readHoldingRegisterBlock(client, 40227, 40294 - 40227); // meter 1 block2
             this.updateSolaredgeData(this.buf);
         });
     }

@@ -100,8 +100,12 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+add first meter model
+readHoldingRegisterBlock lenght +1 -> letztes Byte fehlte
+
 ### 0.0.6 (2022-02-22)
-change modbus read write logic
+	change modbus read write logic
 
 ### 0.0.5 (2022-02-21)
 fix build files

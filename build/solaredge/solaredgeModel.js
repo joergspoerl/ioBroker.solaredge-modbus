@@ -614,6 +614,454 @@ class SolaredgeModel {
             },
             value: 0,
         };
+        this["meter.1.C_Manufacturer"] = {
+            descr: "Meter manufacturer",
+            unit: "",
+            role: "value",
+            type: "string",
+            readRegister: (tmd) => (0, common_1.extractValue)("string", 32, tmd, 40123),
+            value: 0,
+        };
+        this["meter.1.C_Model"] = {
+            descr: "Meter model",
+            unit: "",
+            role: "value",
+            type: "string",
+            readRegister: (tmd) => (0, common_1.extractValue)("string", 32, tmd, 40139),
+            value: 0,
+        };
+        this["meter.1.M_AC_Current"] = {
+            descr: "AC Current (sum of active phases)",
+            unit: "A",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40190) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40194)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Current_A"] = {
+            descr: "Phase A AC Current",
+            unit: "A",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40191) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40194)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Current_B"] = {
+            descr: "Phase B AC Current",
+            unit: "A",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40192) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40194)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Current_C"] = {
+            descr: "Phase C AC Current",
+            unit: "A",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40193) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40194)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Voltage_L_N"] = {
+            descr: "Line to Neutral AC Voltage (average of active phases)",
+            unit: "V",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40195) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40203)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Voltage_A_N"] = {
+            descr: "Phase A to Neutral AC Voltage",
+            unit: "V",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40196) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40203)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Voltage_B_N"] = {
+            descr: "Phase B to Neutral AC Voltage",
+            unit: "V",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40197) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40203)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Voltage_C_N"] = {
+            descr: "Phase C to Neutral AC Voltage",
+            unit: "V",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40198) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40203)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Voltage_L_L"] = {
+            descr: "Line to Line AC Voltage (average of active phases)",
+            unit: "V",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40199) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40203)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Voltage_A_B"] = {
+            descr: "Phase A to Phase B AC Voltage",
+            unit: "V",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40200) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40203)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Voltage_B_C"] = {
+            descr: "Phase B to Phase C AC Voltage",
+            unit: "V",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40201) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40203)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Voltage_C_A"] = {
+            descr: "Phase C to Phase A AC Voltage",
+            unit: "V",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40202) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40203)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Freq"] = {
+            descr: "AC Frequency",
+            unit: "Hz",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40204) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40205)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Power"] = {
+            descr: "Total Real Power (sum of active phases)",
+            unit: "W",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40206) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40210)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Power_A"] = {
+            descr: "Phase A AC Real Power",
+            unit: "W",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40207) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40210)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Power_B"] = {
+            descr: "Phase B AC Real Power",
+            unit: "W",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40208) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40210)),
+            value: 0,
+        };
+        this["meter.1.M_AC_Power_C"] = {
+            descr: "Phase C AC Real Power",
+            unit: "W",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40209) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40210)),
+            value: 0,
+        };
+        this["meter.1.M_AC_VA"] = {
+            descr: "Total AC Apparent Power (sum of active phases)",
+            unit: "VA",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40211) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40215)),
+            value: 0,
+        };
+        this["meter.1.M_AC_VA_A"] = {
+            descr: "Phase A AC Apparent Power",
+            unit: "VA",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40212) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40215)),
+            value: 0,
+        };
+        this["meter.1.M_AC_VA_B"] = {
+            descr: "Phase B AC Apparent Power",
+            unit: "VA",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40213) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40215)),
+            value: 0,
+        };
+        this["meter.1.M_AC_VA_C"] = {
+            descr: "Phase C AC Apparent Power",
+            unit: "VA",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40214) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40215)),
+            value: 0,
+        };
+        this["meter.1.M_AC_VAR"] = {
+            descr: "Total AC Reactive Power (sum of active phases)",
+            unit: "VAR",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40216) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40220)),
+            value: 0,
+        };
+        this["meter.1.M_AC_VAR_A"] = {
+            descr: "Phase A AC Reactive Power",
+            unit: "VAR",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40217) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40220)),
+            value: 0,
+        };
+        this["meter.1.M_AC_VAR_B"] = {
+            descr: "Phase B AC Reactive Power",
+            unit: "VAR",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40218) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40220)),
+            value: 0,
+        };
+        this["meter.1.M_AC_VAR_C"] = {
+            descr: "Phase C AC Reactive Power",
+            unit: "VAR",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40219) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40220)),
+            value: 0,
+        };
+        this["meter.1.M_AC_PF"] = {
+            descr: "Average Power Factor (average of active phases)",
+            unit: "%",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40221) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40225)),
+            value: 0,
+        };
+        this["meter.1.M_AC_PF_A"] = {
+            descr: "Phase A Power Factor",
+            unit: "%",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40222) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40225)),
+            value: 0,
+        };
+        this["meter.1.M_AC_PF_B"] = {
+            descr: "Phase A Power Factor",
+            unit: "%",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40223) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40225)),
+            value: 0,
+        };
+        this["meter.1.M_AC_PF_C"] = {
+            descr: "Phase A Power Factor",
+            unit: "%",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40224) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40225)),
+            value: 0,
+        };
+        this["meter.1.M_Exported"] = {
+            descr: "Total Exported Real Energy",
+            unit: "Wh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40226) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40242)),
+            value: 0,
+        };
+        this["meter.1.M_Exported_A"] = {
+            descr: "Phase A Exported Real Energy",
+            unit: "Wh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40228) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40242)),
+            value: 0,
+        };
+        this["meter.1.M_Exported_B"] = {
+            descr: "Phase B Exported Real Energy",
+            unit: "Wh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40230) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40242)),
+            value: 0,
+        };
+        this["meter.1.M_Exported_C"] = {
+            descr: "Phase C Exported Real Energy",
+            unit: "Wh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40232) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40242)),
+            value: 0,
+        };
+        this["meter.1.M_Imported"] = {
+            descr: "Total Imported Real Energy",
+            unit: "Wh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40234) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40242)),
+            value: 0,
+        };
+        this["meter.1.M_Imported_A"] = {
+            descr: "Phase A Imported Real Energy",
+            unit: "Wh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40236) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40242)),
+            value: 0,
+        };
+        this["meter.1.M_Imported_B"] = {
+            descr: "Phase B Imported Real Energy",
+            unit: "Wh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40238) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40242)),
+            value: 0,
+        };
+        this["meter.1.M_Imported_C"] = {
+            descr: "Phase C Imported Real Energy",
+            unit: "Wh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40240) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40242)),
+            value: 0,
+        };
+        this["meter.1.M_Exported_VA"] = {
+            descr: "Total Exported Apparent Energy",
+            unit: "VAh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40243) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40259)),
+            value: 0,
+        };
+        this["meter.1.M_Exported_VA_A"] = {
+            descr: "Phase A Exported Apparent Energy",
+            unit: "VAh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40245) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40259)),
+            value: 0,
+        };
+        this["meter.1.M_Exported_VA_B"] = {
+            descr: "Phase B Exported Apparent Energy",
+            unit: "VAh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40247) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40259)),
+            value: 0,
+        };
+        this["meter.1.M_Exported_VA_C"] = {
+            descr: "Phase C Exported Apparent Energy",
+            unit: "VAh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40249) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40259)),
+            value: 0,
+        };
+        this["meter.1.M_Imported_VA"] = {
+            descr: "Total Imported Apparent Energy",
+            unit: "VAh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40251) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40259)),
+            value: 0,
+        };
+        this["meter.1.M_Imported_VA_A"] = {
+            descr: "Phase A Imported Apparent Energy",
+            unit: "VAh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40253) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40259)),
+            value: 0,
+        };
+        this["meter.1.M_Imported_VA_B"] = {
+            descr: "Phase B Imported Apparent Energy",
+            unit: "VAh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40255) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40259)),
+            value: 0,
+        };
+        this["meter.1.M_Imported_VA_C"] = {
+            descr: "Phase C Imported Apparent Energy",
+            unit: "VAh",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40257) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40259)),
+            value: 0,
+        };
+        // "meter.1.M_Import_VARh_Q1":    SolaredgeDataEntry = {
+        // 	descr: "Quadrant 1: Total Imported Reactive Energy",
+        // 	unit:  "VARh",
+        // 	role:  "value",
+        // 	type: "number",
+        // 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40260) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+        // 	value: 0,
+        // };
+        // "meter.1.M_Import_VARh_Q1A":    SolaredgeDataEntry = {
+        // 	descr: "Phase A - Quadrant 1: Imported Reactive Energy",
+        // 	unit:  "VARh",
+        // 	role:  "value",
+        // 	type: "number",
+        // 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40262) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+        // 	value: 0,
+        // };
+        // "meter.1.M_Import_VARh_Q1B":    SolaredgeDataEntry = {
+        // 	descr: "Phase B - Quadrant 1: Imported Reactive Energy",
+        // 	unit:  "VARh",
+        // 	role:  "value",
+        // 	type: "number",
+        // 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40264) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+        // 	value: 0,
+        // };
+        // "meter.1.M_Import_VARh_Q1C":    SolaredgeDataEntry = {
+        // 	descr: "Phase C - Quadrant 1: Imported Reactive Energy",
+        // 	unit:  "VARh",
+        // 	role:  "value",
+        // 	type: "number",
+        // 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40266) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+        // 	value: 0,
+        // };
+        // "meter.1.M_Import_VARh_Q2":    SolaredgeDataEntry = {
+        // 	descr: "Quadrant 2: Total Imported Reactive Energy",
+        // 	unit:  "VARh",
+        // 	role:  "value",
+        // 	type: "number",
+        // 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40268) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+        // 	value: 0,
+        // };
+        // "meter.1.M_Import_VARh_Q2A":    SolaredgeDataEntry = {
+        // 	descr: "Phase A - Quadrant 2: Imported Reactive Energy",
+        // 	unit:  "VARh",
+        // 	role:  "value",
+        // 	type: "number",
+        // 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40270) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+        // 	value: 0,
+        // };
+        // "meter.1.M_Import_VARh_Q2B":    SolaredgeDataEntry = {
+        // 	descr: "Phase B - Quadrant 2: Imported Reactive Energy",
+        // 	unit:  "VARh",
+        // 	role:  "value",
+        // 	type: "number",
+        // 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40272) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+        // 	value: 0,
+        // };
+        // "meter.1.M_Import_VARh_Q2C":    SolaredgeDataEntry = {
+        // 	descr: "Phase C - Quadrant 2: Imported Reactive Energy",
+        // 	unit:  "VARh",
+        // 	role:  "value",
+        // 	type: "number",
+        // 	readRegister:  (tmd: Buffer) =>  extractValue("uint32be", 2, tmd, 40274) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40292) as number),
+        // 	value: 0,
+        // };
+        this["meter.1.M_Events"] = {
+            descr: "See M_EVENT_ flags. 0 = nts.",
+            unit: "",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 40293),
+            value: 0,
+        };
     }
 }
 exports.SolaredgeModel = SolaredgeModel;
