@@ -112,7 +112,7 @@ class SolaredgeModbus extends utils.Adapter {
                 await this.solaredge.readAndWrite(this.config);
                 for (const [key, value] of Object.entries(this.solaredge.SolaredgeData)) {
                     const v = value;
-                    if (true || v.value !== v.valueOld) {
+                    if (v.value !== v.valueOld) {
                         // this.log.debug("key     : " + key)
                         // this.log.debug("value   : " + v.value)
                         // this.log.debug("valueOld: " + v.valueOld)
@@ -128,20 +128,6 @@ class SolaredgeModbus extends utils.Adapter {
             this.log.error("ERROR updateStates in  solaredge.readHoldingRegister: " + JSON.stringify(Exception));
         }
     }
-    // If you need to react to object changes, uncomment the following block and the corresponding line in the constructor.
-    // You also need to subscribe to the objects with `this.subscribeObjects`, similar to `this.subscribeStates`.
-    // /**
-    //  * Is called if a subscribed object changes
-    //  */
-    // private onObjectChange(id: string, obj: ioBroker.Object | null | undefined): void {
-    // 	if (obj) {
-    // 		// The object was changed
-    // 		this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-    // 	} else {
-    // 		// The object was deleted
-    // 		this.log.info(`object ${id} deleted`);
-    // 	}
-    // }
     /**
      * Is called if a subscribed state changes
      */
@@ -150,7 +136,7 @@ class SolaredgeModbus extends utils.Adapter {
         try {
             if (state) {
                 // The state was changed
-                this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+                this.log.debug(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
                 const v = (_a = this.solaredge) === null || _a === void 0 ? void 0 : _a.SolaredgeData[(0, solaredgeUtil_1.splitIdFromAdapter)(id)];
                 this.log.debug("onStateChange" + JSON.stringify(v));
                 if (v && v.writeRegister && state.ack == false) {
@@ -160,20 +146,10 @@ class SolaredgeModbus extends utils.Adapter {
                     (_b = this.solaredge) === null || _b === void 0 ? void 0 : _b.sendHoldingRegisterQueue.push(queueEntry);
                     // await this.solaredge?.writeHoldingRegister(this.config);
                 }
-                // else {
-                // 	if (v.writeCoil) {
-                // 		twd.value = state.val;
-                // 		const twc = v.writeCoil(twd);
-                // 		this.tristar.sendCoilQueue.push(twc)
-                // 		await this.tristar.writeCoil(this.config)
-                // 	} else {
-                // 		this.log.error("Model has nor function writeCoil or write Register !!! ")
-                // 	}
-                // }
             }
             else {
                 // The state was deleted
-                this.log.info(`state ${id} deleted`);
+                this.log.debug(`state ${id} deleted`);
             }
         }
         catch (Exception) {
