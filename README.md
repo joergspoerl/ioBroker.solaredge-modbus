@@ -100,6 +100,9 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+fix connection status
+
 ### 0.0.9 (2022-03-21)
 connection status
 

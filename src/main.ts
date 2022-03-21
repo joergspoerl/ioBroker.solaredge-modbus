@@ -71,6 +71,9 @@ class SolaredgeModbus extends utils.Adapter {
 
 
 	private async initObjects(): Promise<void> {
+
+		await this.initConnectionInfoObject();
+
 		if (this.solaredge) {
 			for (const [key, value] of Object.entries(this.solaredge.SolaredgeData)) {
 				const v = value as SolaredgeDataEntry
@@ -94,7 +97,7 @@ class SolaredgeModbus extends utils.Adapter {
 	private async mainLoop(): Promise<void> {
 		while(this.mainLoopRunning) {
 			await this.updateStates();
-			this.log.debug("sleep: " + this.config.interval * 1000)
+			// this.log.debug("sleep: " + this.config.interval * 1000)
 			await this.sleep(this.config.interval * 1000)
 
 			// console.log("sleep debug: ", this.config.interval * 1000 * 1000)
@@ -165,6 +168,22 @@ class SolaredgeModbus extends utils.Adapter {
 		} catch (Exception) {
 			this.log.error("onStateChange" + JSON.stringify(Exception))
 		}
+	}
+
+	private async initConnectionInfoObject(): Promise<void> {
+		await this.setObjectNotExistsAsync("info.connection", {
+			_id: "info.connection",
+			type: "state",
+			common: {
+				role: "indicator.connected",
+				name: "If communication with circuit works",
+				type: "boolean",
+				read: true,
+				write: false,
+				def: false,
+			},
+			native: {},
+		});
 	}
 
 	private async setInfoConnectionState(state: boolean): Promise<void> {

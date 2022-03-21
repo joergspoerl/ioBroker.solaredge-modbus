@@ -42,7 +42,7 @@ export class SolaredgeTCPModbus {
 
 	async readAndWrite(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
 
-		this.log.debug("readAndWrite start")
+		// this.log.debug("readAndWrite start")
 
 		await this.connect(adapterConfig, async (client) => {
 
@@ -90,8 +90,8 @@ export class SolaredgeTCPModbus {
 	async connect(adapterConfig: ioBroker.AdapterConfig, callback: (client: any) => Promise<void>): Promise<any> {
 		const config = adapterConfig
 		return new Promise<any>((resolve, reject) => {
-			this.log.debug("connect to host: " + config.hostname)
-			this.log.debug("connect to unitId: " + config.unitId)
+			// this.log.debug("connect to host: " + config.hostname)
+			// this.log.debug("connect to unitId: " + config.unitId)
 
 			// eslint-disable-next-line @typescript-eslint/no-this-alias
 			const self = this;
@@ -105,13 +105,13 @@ export class SolaredgeTCPModbus {
 				netSocket.connect({
 					"host": config.hostname, //192.168.1.32 TS10480676
 					"port": config.port,
-					// 'autoReconnect': true,
-					// 'reconnectTimeout': 4000,
-					// 'timeout': 8000,
+					"autoReconnect": true,
+					"reconnectTimeout": 4000,
+					"timeout": 1000,
 				})
 
 				netSocket.on("connect", async () => {
-					this.log.debug("connected ...")
+					// this.log.debug("connected ...")
 
 					// call modbus command
 					try {
