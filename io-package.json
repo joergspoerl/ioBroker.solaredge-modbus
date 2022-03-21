@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.8",
+        "version": "0.0.9",
         "news": {
+            "0.0.9": {
+                "en": "connection status",
+                "de": "Verbindungsstatus",
+                "ru": "статус соединения",
+                "pt": "status da conexão",
+                "nl": "verbindingsstatus",
+                "fr": "statut de connexion",
+                "it": "stato della connessione",
+                "es": "Estado de conexión",
+                "pl": "Status połączenia",
+                "zh-cn": "连接状态"
+            },
             "0.0.8": {
                 "en": "clean code\nupdate only changed values",
                 "de": "sauberer Code\nnur geänderte Werte aktualisieren",
