@@ -112,6 +112,9 @@ class SolaredgeModbus extends utils.Adapter {
 
 				await this.solaredge.readAndWrite(this.config)
 
+				await this.setInfoConnectionState(true);
+
+				await this.setInfoConnectionState(true);
 				for (const [key, value] of Object.entries(this.solaredge.SolaredgeData)) {
 					const v = value as SolaredgeDataEntry;
 					if (v.value !== v.valueOld) {
@@ -126,6 +129,8 @@ class SolaredgeModbus extends utils.Adapter {
 				}
 			}
 		} catch (Exception) {
+			await this.setInfoConnectionState(false);
+
 			this.log.error("ERROR updateStates in  solaredge.readHoldingRegister: " + JSON.stringify(Exception))
 		}
 
@@ -160,6 +165,10 @@ class SolaredgeModbus extends utils.Adapter {
 		} catch (Exception) {
 			this.log.error("onStateChange" + JSON.stringify(Exception))
 		}
+	}
+
+	private async setInfoConnectionState(state: boolean): Promise<void> {
+		await this.setStateAsync("info.connection", state, true);
 	}
 
 }
