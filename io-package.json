@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "news": {
+            "0.0.8": {
+                "en": "clean code\nupdate only changed values",
+                "de": "sauberer Code\nnur geänderte Werte aktualisieren",
+                "ru": "чистый код\nобновлять только измененные значения",
+                "pt": "código limpo\natualizar apenas valores alterados",
+                "nl": "schone code\nupdate alleen gewijzigde waarden",
+                "fr": "code propre\nmettre à jour uniquement les valeurs modifiées",
+                "it": "codice pulito\naggiorna solo i valori modificati",
+                "es": "código limpio\nactualizar solo los valores modificados",
+                "pl": "czysty kod\naktualizuj tylko zmienione wartości",
+                "zh-cn": "干净的代码\n仅更新更改的值"
+            },
             "0.0.7": {
                 "en": "add first meter model\nreadHoldingRegisterBlock lenght +1 -> letztes Byte fehlte",
                 "de": "erstes Zählermodell hinzufügen\nreadHoldingRegisterBlock length +1 -> letztes Byte fehlt",
