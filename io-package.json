@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.10",
+        "version": "0.0.11",
         "news": {
+            "0.0.11": {
+                "en": "modbus timing",
+                "de": "Modbus-Timing",
+                "ru": "синхронизация Modbus",
+                "pt": "temporização do modbus",
+                "nl": "modbus-timing",
+                "fr": "temporisation modbus",
+                "it": "tempismo modbus",
+                "es": "temporización modbus",
+                "pl": "taktowanie modbusa",
+                "zh-cn": "总线定时"
+            },
             "0.0.10": {
                 "en": "fix connection status",
                 "de": "Verbindungsstatus beheben",
