@@ -23,6 +23,10 @@ export class SolaredgeTCPModbus {
 
 	}
 
+	private async sleep(ms:number): Promise<void> {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	}
+
 	async updateSolaredgeData(hr: SolaredgeHoldingRegister): Promise<void> {
 		const tmd = hr as Buffer;
 
@@ -51,6 +55,7 @@ export class SolaredgeTCPModbus {
 				this.log.debug("request writeSingleRegister " + JSON.stringify(item))
 				const response = await client.writeMultipleRegisters(item?.register, item?.value)
 				this.log.debug("response writeSingleRegister " + JSON.stringify(response))
+				await this.sleep(500)
 			}
 
 			await this.readHoldingRegisterBlock(client, 0, 111)                  // sun-spec block
@@ -60,7 +65,7 @@ export class SolaredgeTCPModbus {
 			await this.readHoldingRegisterBlock(client, 40123, 40226 - 40123) // meter 1 block1
 			await this.readHoldingRegisterBlock(client, 40227, 40294 - 40227) // meter 1 block2
 
-			this.updateSolaredgeData(this.buf)
+			await this.updateSolaredgeData(this.buf)
 		})
 	}
 
