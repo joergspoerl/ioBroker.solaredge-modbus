@@ -100,6 +100,9 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+add debug log messages and connection lost warning
+
 ### 0.0.13 (2022-03-29)
 add connection watchdog
 

@@ -111,11 +111,14 @@ class SolaredgeModbus extends utils.Adapter {
 			if (this.solaredge) {
 				const timeDiff = (Date.now() - this.solaredge.lastConnectedTimestamp)
 				if (this.solaredge.lastConnectedTimestamp == 0 || timeDiff > 10000 ) {
+					this.log.warn("setInfoConnectionState: false - connection lost !")
 					await this.setInfoConnectionState(false)
 				} else {
+					this.log.debug("setInfoConnectionState: true - connection ok")
 					await this.setInfoConnectionState(true)
 				}
 			} else {
+				this.log.warn("setInfoConnectionState: false - connection lost !")
 				await this.setInfoConnectionState(false)
 			}
 		}, 5000)
