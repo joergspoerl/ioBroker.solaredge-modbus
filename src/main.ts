@@ -47,6 +47,7 @@ class SolaredgeModbus extends utils.Adapter {
 		// Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
 		// this.subscribeStates("*");
 
+		this.startWatchDog();
 		this.mainLoop();
 
 	}
@@ -97,13 +98,29 @@ class SolaredgeModbus extends utils.Adapter {
 	private async mainLoop(): Promise<void> {
 		while(this.mainLoopRunning) {
 			await this.updateStates();
-			// this.log.debug("sleep: " + this.config.interval * 1000)
+			this.log.debug("sleep: " + this.config.interval * 1000)
 			await this.sleep(this.config.interval * 1000)
 
 			// console.log("sleep debug: ", this.config.interval * 1000 * 1000)
 			// await this.sleep(this.config.interval * 1000 * 1000) /* DEBUG */
 		}
 	}
+
+	private async startWatchDog(): Promise<void> {
+		setInterval( async ()=> {
+			if (this.solaredge) {
+				const timeDiff = (Date.now() - this.solaredge.lastConnectedTimestamp)
+				if (this.solaredge.lastConnectedTimestamp == 0 || timeDiff > 10000 ) {
+					await this.setInfoConnectionState(false)
+				} else {
+					await this.setInfoConnectionState(true)
+				}
+			} else {
+				await this.setInfoConnectionState(false)
+			}
+		}, 5000)
+	}
+
 
 	private async sleep(ms:number): Promise<void> {
 		return new Promise(resolve => setTimeout(resolve, ms));
@@ -115,15 +132,16 @@ class SolaredgeModbus extends utils.Adapter {
 
 				await this.solaredge.readAndWrite(this.config)
 
-				await this.setInfoConnectionState(true);
+				// await this.setInfoConnectionState(true);
 
-				await this.setInfoConnectionState(true);
 				for (const [key, value] of Object.entries(this.solaredge.SolaredgeData)) {
 					const v = value as SolaredgeDataEntry;
 					if (v.value !== v.valueOld) {
 						// this.log.debug("key     : " + key)
 						// this.log.debug("value   : " + v.value)
 						// this.log.debug("valueOld: " + v.valueOld)
+						this.log.debug("setState: " + key +" : " + v.value)
+
 						await this.setStateAsync(key, {
 							val: v.value,
 							ack: true
@@ -132,9 +150,11 @@ class SolaredgeModbus extends utils.Adapter {
 				}
 			}
 		} catch (Exception) {
-			await this.setInfoConnectionState(false);
-
-			this.log.error("ERROR updateStates in  solaredge.readHoldingRegister: " + JSON.stringify(Exception))
+			// await this.setInfoConnectionState(false);
+			if (this.solaredge) {
+				this.solaredge.lastConnectedTimestamp = 0
+			}
+			this.log.error("ERROR - " + JSON.stringify(Exception))
 		}
 
 	}

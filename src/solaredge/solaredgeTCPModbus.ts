@@ -16,6 +16,7 @@ export class SolaredgeTCPModbus {
 	sendHoldingRegisterQueue: Array<SolaredgeWriteMultipleHoldingRegister> = []
 	sendCoilQueue: Array<SolaredgeWriteSingleCoil> = []
 
+	lastConnectedTimestamp = 0
 
 	constructor(log: ioBroker.Logger) {
 		this.log = log
@@ -49,7 +50,9 @@ export class SolaredgeTCPModbus {
 		// this.log.debug("readAndWrite start")
 
 		await this.connect(adapterConfig, async (client) => {
+			//await this.sleep(1000000 )
 
+			// while(true) {}
 			while (this.sendHoldingRegisterQueue.length > 0) {
 				const item = this.sendHoldingRegisterQueue.pop()
 				this.log.debug("request writeSingleRegister " + JSON.stringify(item))
@@ -87,16 +90,6 @@ export class SolaredgeTCPModbus {
 		const b: Buffer = Buffer.from(block.response._body._valuesAsBuffer)
 		b.copy(this.buf, start * 2)
 	}
-	// async writeCoil(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
-
-	// 	await this.connect(adapterConfig, async (client) => {
-	// 		while (this.sendCoilQueue.length > 0) {
-	// 			const item = this.sendCoilQueue.pop()
-	// 			const response = await client.writeSingleCoil(item?.register, item?.value == 1 ? true : false)
-	// 			this.log.debug("response writeCoil " + JSON.stringify(response))
-	// 		}
-	// 	})
-	// }
 
 	async connect(adapterConfig: ioBroker.AdapterConfig, callback: (client: any) => Promise<void>): Promise<any> {
 		const config = adapterConfig
@@ -126,6 +119,8 @@ export class SolaredgeTCPModbus {
 
 					// call modbus command
 					try {
+						self.lastConnectedTimestamp = Date.now()
+
 						await callback(client)
 						netSocket.end();
 						resolve(self.SolaredgeData);
@@ -155,6 +150,7 @@ export class SolaredgeTCPModbus {
 		})
 
 	}
+
 
 
 }

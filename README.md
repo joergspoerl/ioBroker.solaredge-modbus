@@ -100,6 +100,9 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+add connection watchdog
+
 ### 0.0.12 (2022-03-28)
 modbus timing
 
