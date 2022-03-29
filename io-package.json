@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.13",
+        "version": "0.0.14",
         "news": {
+            "0.0.14": {
+                "en": "add debug log messages and connection lost warning",
+                "de": "Fügen Sie Debug-Protokollmeldungen und eine Warnung zum Verbindungsverlust hinzu",
+                "ru": "добавить сообщения журнала отладки и предупреждение о потере соединения",
+                "pt": "adicionar mensagens de log de depuração e aviso de perda de conexão",
+                "nl": "voeg foutopsporingslogberichten en verbinding verbroken waarschuwing toe",
+                "fr": "ajouter des messages de journal de débogage et un avertissement de perte de connexion",
+                "it": "aggiungi messaggi di registro di debug e avviso di connessione persa",
+                "es": "agregue mensajes de registro de depuración y advertencia de pérdida de conexión",
+                "pl": "dodaj komunikaty dziennika debugowania i ostrzeżenie o utracie połączenia",
+                "zh-cn": "添加调试日志消息和连接丢失警告"
+            },
             "0.0.13": {
                 "en": "add connection watchdog",
                 "de": "Verbindungsüberwachung hinzufügen",
