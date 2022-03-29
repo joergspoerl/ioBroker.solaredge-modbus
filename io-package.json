@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.12",
+        "version": "0.0.13",
         "news": {
+            "0.0.13": {
+                "en": "add connection watchdog",
+                "de": "Verbindungsüberwachung hinzufügen",
+                "ru": "добавить сторожевой таймер соединения",
+                "pt": "adicionar watchdog de conexão",
+                "nl": "verbindingswaakhond toevoegen",
+                "fr": "ajouter un chien de garde de connexion",
+                "it": "aggiungi watchdog di connessione",
+                "es": "añadir vigilancia de conexión",
+                "pl": "dodaj strażnika połączenia",
+                "zh-cn": "添加连接看门狗"
+            },
             "0.0.12": {
                 "en": "modbus timing",
                 "de": "Modbus-Timing",
