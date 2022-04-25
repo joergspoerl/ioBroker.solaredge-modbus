@@ -15,6 +15,7 @@ class SolaredgeTCPModbus {
         this.sendHoldingRegisterQueue = [];
         this.sendCoilQueue = [];
         this.lastConnectedTimestamp = 0;
+        this.connectionErrorCounter = 0;
         this.log = log;
         this.log.debug("solaredgeTCPModbus constructor");
     }
@@ -86,13 +87,6 @@ class SolaredgeTCPModbus {
                 const netSocket = new net.Socket();
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 const client = new modbus.client.TCP(netSocket, config.unitId);
-                netSocket.connect({
-                    "host": config.hostname,
-                    "port": config.port,
-                    "autoReconnect": true,
-                    "reconnectTimeout": 4000,
-                    "timeout": 1000,
-                });
                 netSocket.on("connect", async () => {
                     // this.log.debug("connected ...")
                     // call modbus command
@@ -111,6 +105,13 @@ class SolaredgeTCPModbus {
                 netSocket.on("error", (err) => {
                     this.log.error("netSocket ERROR" + JSON.stringify(err));
                     reject(err);
+                });
+                netSocket.connect({
+                    "host": config.hostname,
+                    "port": config.port,
+                    "autoReconnect": false,
+                    "reconnectTimeout": 4000,
+                    "timeout": 1000,
                 });
             }
             catch (Exception) {

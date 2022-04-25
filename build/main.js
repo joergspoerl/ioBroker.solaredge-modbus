@@ -97,30 +97,39 @@ class SolaredgeModbus extends utils.Adapter {
         }
     }
     async mainLoop() {
+        this.log.debug("mainloop: start");
         while (this.mainLoopRunning) {
+            this.log.debug("mainloop: while");
             await this.updateStates();
             this.log.debug("sleep: " + this.config.interval * 1000);
             await this.sleep(this.config.interval * 1000);
             // console.log("sleep debug: ", this.config.interval * 1000 * 1000)
             // await this.sleep(this.config.interval * 1000 * 1000) /* DEBUG */
         }
+        this.log.debug("mainloop: end");
     }
     async startWatchDog() {
         setInterval(async () => {
             if (this.solaredge) {
                 const timeDiff = (Date.now() - this.solaredge.lastConnectedTimestamp);
                 if (this.solaredge.lastConnectedTimestamp == 0 || timeDiff > 10000) {
-                    this.log.warn("setInfoConnectionState: false - connection lost !");
+                    this.solaredge.connectionErrorCounter++;
+                    this.log.warn("setInfoConnectionState: false - connection lost ! connectionErrorCounter:" + this.solaredge.connectionErrorCounter);
                     await this.setInfoConnectionState(false);
+                    // if (this.solaredge.connectionErrorCounter > 10) {
+                    // 	this.restart()
+                    // }
                 }
                 else {
+                    this.solaredge.connectionErrorCounter = 0;
                     this.log.debug("setInfoConnectionState: true - connection ok");
                     await this.setInfoConnectionState(true);
                 }
             }
             else {
-                this.log.warn("setInfoConnectionState: false - connection lost !");
+                this.log.warn("setInfoConnectionState: false - connection lost ! - this.solaredge == null");
                 await this.setInfoConnectionState(false);
+                this.restart();
             }
         }, 5000);
     }

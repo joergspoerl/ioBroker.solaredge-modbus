@@ -17,6 +17,7 @@ export class SolaredgeTCPModbus {
 	sendCoilQueue: Array<SolaredgeWriteSingleCoil> = []
 
 	lastConnectedTimestamp = 0
+	connectionErrorCounter = 0
 
 	constructor(log: ioBroker.Logger) {
 		this.log = log
@@ -106,14 +107,6 @@ export class SolaredgeTCPModbus {
 				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				const client = new modbus.client.TCP(netSocket, config.unitId);
 
-				netSocket.connect({
-					"host": config.hostname, //192.168.1.32 TS10480676
-					"port": config.port,
-					"autoReconnect": true,
-					"reconnectTimeout": 4000,
-					"timeout": 1000,
-				})
-
 				netSocket.on("connect", async () => {
 					// this.log.debug("connected ...")
 
@@ -140,6 +133,14 @@ export class SolaredgeTCPModbus {
 					this.log.error("netSocket ERROR" + JSON.stringify(err))
 					reject(err);
 
+				})
+
+				netSocket.connect({
+					"host": config.hostname, //192.168.1.32 TS10480676
+					"port": config.port,
+					"autoReconnect": false,
+					"reconnectTimeout": 4000,
+					"timeout": 1000,
 				})
 
 			} catch (Exception) {
