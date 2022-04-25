@@ -100,7 +100,7 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 0.0.15 (2022-04-25)
 add connection fail counter
 restart adapter
 

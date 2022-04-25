@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.14",
+        "version": "0.0.15",
         "news": {
+            "0.0.15": {
+                "en": "add connection fail counter\nrestart adapter",
+                "de": "Zähler für Verbindungsfehler hinzufügen\nAdapter neu starten",
+                "ru": "добавить счетчик неудачных подключений\nперезапустить адаптер",
+                "pt": "adicionar contador de falhas de conexão\nreinicie o adaptador",
+                "nl": "teller voor mislukte verbinding toevoegen\nherstart adapter",
+                "fr": "ajouter un compteur d'échec de connexion\nredémarrer l'adaptateur",
+                "it": "aggiungi contatore di errori di connessione\nriavviare l'adattatore",
+                "es": "agregar contador de fallas de conexión\nadaptador de reinicio",
+                "pl": "dodaj licznik błędów połączenia\nuruchom ponownie adapter",
+                "zh-cn": "添加连接失败计数器\n重启适配器"
+            },
             "0.0.14": {
                 "en": "add debug log messages and connection lost warning",
                 "de": "Fügen Sie Debug-Protokollmeldungen und eine Warnung zum Verbindungsverlust hinzu",
