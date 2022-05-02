@@ -38,10 +38,7 @@ class SolaredgeTCPModbus {
         }
     }
     async readAndWrite(adapterConfig) {
-        // this.log.debug("readAndWrite start")
         await this.connect(adapterConfig, async (client) => {
-            //await this.sleep(1000000 )
-            // while(true) {}
             while (this.sendHoldingRegisterQueue.length > 0) {
                 const item = this.sendHoldingRegisterQueue.pop();
                 this.log.debug("request writeSingleRegister " + JSON.stringify(item));
@@ -82,6 +79,10 @@ class SolaredgeTCPModbus {
             // this.log.debug("connect to unitId: " + config.unitId)
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const self = this;
+            const timeoutRef = setTimeout(() => {
+                this.log.error("ERROR: Connection timeout");
+                reject("ERROR: Connection timeout");
+            }, 1000);
             try {
                 // create a modbus client
                 const netSocket = new net.Socket();
@@ -92,29 +93,33 @@ class SolaredgeTCPModbus {
                     // call modbus command
                     try {
                         self.lastConnectedTimestamp = Date.now();
+                        clearTimeout(timeoutRef);
                         await callback(client);
                         netSocket.end();
                         resolve(self.SolaredgeData);
                     }
                     catch (Exception) {
+                        clearTimeout(timeoutRef);
                         this.log.error("ERROR in callback" + JSON.stringify(Exception));
                         netSocket.end();
                         reject(Exception);
                     }
                 });
                 netSocket.on("error", (err) => {
+                    clearTimeout(timeoutRef);
                     this.log.error("netSocket ERROR" + JSON.stringify(err));
                     reject(err);
                 });
                 netSocket.connect({
                     "host": config.hostname,
                     "port": config.port,
-                    "autoReconnect": false,
-                    "reconnectTimeout": 4000,
+                    // "autoReconnect": false,
+                    // "reconnectTimeout": 4000,
                     "timeout": 1000,
                 });
             }
             catch (Exception) {
+                clearTimeout(timeoutRef);
                 this.log.error("ERROR in connect" + JSON.stringify(Exception));
                 reject(Exception);
             }

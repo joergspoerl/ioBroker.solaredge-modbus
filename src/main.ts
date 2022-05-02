@@ -117,9 +117,9 @@ class SolaredgeModbus extends utils.Adapter {
 					this.solaredge.connectionErrorCounter++
 					this.log.warn("setInfoConnectionState: false - connection lost ! connectionErrorCounter:" + this.solaredge.connectionErrorCounter)
 					await this.setInfoConnectionState(false)
-					// if (this.solaredge.connectionErrorCounter > 10) {
-					// 	this.restart()
-					// }
+					if (this.solaredge.connectionErrorCounter > 10) {
+						this.restart()
+					}
 				} else {
 					this.solaredge.connectionErrorCounter = 0
 					this.log.debug("setInfoConnectionState: true - connection ok")

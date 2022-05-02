@@ -48,12 +48,8 @@ export class SolaredgeTCPModbus {
 
 	async readAndWrite(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
 
-		// this.log.debug("readAndWrite start")
-
 		await this.connect(adapterConfig, async (client) => {
-			//await this.sleep(1000000 )
 
-			// while(true) {}
 			while (this.sendHoldingRegisterQueue.length > 0) {
 				const item = this.sendHoldingRegisterQueue.pop()
 				this.log.debug("request writeSingleRegister " + JSON.stringify(item))
@@ -101,6 +97,12 @@ export class SolaredgeTCPModbus {
 			// eslint-disable-next-line @typescript-eslint/no-this-alias
 			const self = this;
 
+			const timeoutRef = setTimeout( () => {
+				this.log.error("ERROR: Connection timeout")
+				reject("ERROR: Connection timeout")
+			}, 1000)
+
+
 			try {
 				// create a modbus client
 				const netSocket = new net.Socket()
@@ -113,6 +115,7 @@ export class SolaredgeTCPModbus {
 					// call modbus command
 					try {
 						self.lastConnectedTimestamp = Date.now()
+						clearTimeout(timeoutRef)
 
 						await callback(client)
 						netSocket.end();
@@ -120,6 +123,7 @@ export class SolaredgeTCPModbus {
 					}
 
 					catch (Exception) {
+						clearTimeout(timeoutRef)
 						this.log.error("ERROR in callback" + JSON.stringify(Exception))
 						netSocket.end();
 						reject(Exception);
@@ -130,20 +134,22 @@ export class SolaredgeTCPModbus {
 
 
 				netSocket.on("error", (err: any) => {
+					clearTimeout(timeoutRef)
 					this.log.error("netSocket ERROR" + JSON.stringify(err))
 					reject(err);
 
 				})
 
 				netSocket.connect({
-					"host": config.hostname, //192.168.1.32 TS10480676
+					"host": config.hostname,
 					"port": config.port,
-					"autoReconnect": false,
-					"reconnectTimeout": 4000,
+					// "autoReconnect": false,
+					// "reconnectTimeout": 4000,
 					"timeout": 1000,
 				})
 
 			} catch (Exception) {
+				clearTimeout(timeoutRef)
 				this.log.error("ERROR in connect" + JSON.stringify(Exception))
 				reject(Exception);
 			}
