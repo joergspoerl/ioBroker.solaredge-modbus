@@ -100,7 +100,7 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 0.0.16 (2022-05-02)
 edit connection error handling
 add timout
 reactivate restart after 10 watchdog cycles

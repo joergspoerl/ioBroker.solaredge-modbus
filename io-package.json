@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.15",
+        "version": "0.0.16",
         "news": {
+            "0.0.16": {
+                "en": "edit connection error handling\nadd timout\nreactivate restart after 10 watchdog cycles",
+                "de": "Behandlung von Verbindungsfehlern bearbeiten\nZeitüberschreitung hinzufügen\nNeustart nach 10 Watchdog-Zyklen wieder aktivieren",
+                "ru": "изменить обработку ошибок подключения\nдобавить тайм-аут\nповторно активировать перезапуск после 10 циклов сторожевого таймера",
+                "pt": "editar tratamento de erros de conexão\nadicionar tempo limite\nreativar a reinicialização após 10 ciclos de watchdog",
+                "nl": "bewerking verbinding foutafhandeling\ntime-out toevoegen\nherstart herstart na 10 watchdog-cycli",
+                "fr": "modifier la gestion des erreurs de connexion\najouter un délai\nréactiver le redémarrage après 10 cycles de chien de garde",
+                "it": "modificare la gestione degli errori di connessione\naggiungi timeout\nriattivare il riavvio dopo 10 cicli di watchdog",
+                "es": "editar el manejo de errores de conexión\nañadir tiempo de espera\nreactivar el reinicio después de 10 ciclos de vigilancia",
+                "pl": "edytuj obsługę błędów połączenia\ndodaj limit czasu\nreaktywuj restart po 10 cyklach watchdoga",
+                "zh-cn": "编辑连接错误处理\n添加超时\n10 个看门狗周期后重新激活重启"
+            },
             "0.0.15": {
                 "en": "add connection fail counter\nrestart adapter",
                 "de": "Zähler für Verbindungsfehler hinzufügen\nAdapter neu starten",
