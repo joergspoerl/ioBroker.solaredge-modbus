@@ -38,7 +38,7 @@ class SolaredgeTCPModbus {
         }
     }
     async readAndWrite(adapterConfig) {
-        const com_wait_pause = 50; // ms
+        const com_wait_pause = 100; // ms
         await this.connect(adapterConfig, async (client) => {
             while (this.sendHoldingRegisterQueue.length > 0) {
                 const item = this.sendHoldingRegisterQueue.pop();

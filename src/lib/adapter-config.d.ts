@@ -7,7 +7,8 @@ declare global {
 			hostname: string;
 			port: number;
 			unitId: number;
-			interval: number;
+			com_wait_pause: number;
+			main_loop_pause: number;
 		}
 	}
 }
