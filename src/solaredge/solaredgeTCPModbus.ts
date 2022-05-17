@@ -48,7 +48,7 @@ export class SolaredgeTCPModbus {
 
 	async readAndWrite(adapterConfig: ioBroker.AdapterConfig): Promise<void> {
 
-		const com_wait_pause = 50 // ms
+		const com_wait_pause = 100 // ms
 
 		await this.connect(adapterConfig, async (client) => {
 
