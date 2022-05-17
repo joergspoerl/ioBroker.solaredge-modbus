@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.17",
+        "version": "0.0.18",
         "news": {
+            "0.0.18": {
+                "en": "com_wait_pause = 100 // ms",
+                "de": "com_wait_pause = 100 // ms",
+                "ru": "com_wait_pause = 100 // мс",
+                "pt": "com_wait_pause = 100 // ms",
+                "nl": "com_wait_pause = 100 // ms",
+                "fr": "com_wait_pause = 100 // ms",
+                "it": "com_wait_pause = 100 // ms",
+                "es": "com_wait_pause = 100 // ms",
+                "pl": "com_wait_pause = 100 // ms",
+                "zh-cn": "com_wait_pause = 100 // 毫秒"
+            },
             "0.0.17": {
                 "en": "com_wait_pause = 50 // ms",
                 "de": "com_wait_pause = 50 // ms",
