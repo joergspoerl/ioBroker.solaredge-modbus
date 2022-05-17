@@ -102,9 +102,6 @@ class SolaredgeModbus extends utils.Adapter {
 			await this.updateStates();
 			this.log.debug("sleep: " + this.config.interval * 1000)
 			await this.sleep(this.config.interval * 1000)
-
-			// console.log("sleep debug: ", this.config.interval * 1000 * 1000)
-			// await this.sleep(this.config.interval * 1000 * 1000) /* DEBUG */
 		}
 		this.log.debug("mainloop: end")
 	}
