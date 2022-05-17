@@ -100,6 +100,10 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+
+### **WORK IN PROGRESS**
+com_wait_pause = 50 // ms
+
 ### 0.0.16 (2022-05-02)
 edit connection error handling
 add timout
