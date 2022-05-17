@@ -101,7 +101,7 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
 
-### **WORK IN PROGRESS**
+### 0.0.19 (2022-05-17)
 add com_wait_pause config
 add main_loop_pause config
 

@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.18",
+        "version": "0.0.19",
         "news": {
+            "0.0.19": {
+                "en": "add com_wait_pause config\nadd main_loop_pause config",
+                "de": "com_wait_pause config hinzufügen\nmain_loop_pause config hinzufügen",
+                "ru": "добавить конфиг com_wait_pause\nдобавить конфиг main_loop_pause",
+                "pt": "adicionar configuração com_wait_pause\nadicionar configuração main_loop_pause",
+                "nl": "com_wait_pause config toevoegen\nvoeg main_loop_pause config toe",
+                "fr": "ajouter la configuration com_wait_pause\najouter la configuration main_loop_pause",
+                "it": "aggiungi com_wait_pause config\naggiungi main_loop_pause config",
+                "es": "agregar configuración com_wait_pause\nagregar configuración main_loop_pause",
+                "pl": "dodaj konfigurację com_wait_pause\ndodaj konfigurację main_loop_pause",
+                "zh-cn": "添加 com_wait_pause 配置\n添加 main_loop_pause 配置"
+            },
             "0.0.18": {
                 "en": "com_wait_pause = 100 // ms",
                 "de": "com_wait_pause = 100 // ms",
