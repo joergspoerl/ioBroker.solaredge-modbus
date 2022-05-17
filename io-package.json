@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.16",
+        "version": "0.0.17",
         "news": {
+            "0.0.17": {
+                "en": "com_wait_pause = 50 // ms",
+                "de": "com_wait_pause = 50 // ms",
+                "ru": "com_wait_pause = 50 // мс",
+                "pt": "com_wait_pause = 50 // ms",
+                "nl": "com_wait_pause = 50 // ms",
+                "fr": "com_wait_pause = 50 // ms",
+                "it": "com_wait_pause = 50 // ms",
+                "es": "com_wait_pause = 50 // ms",
+                "pl": "com_wait_pause = 50 // ms",
+                "zh-cn": "com_wait_pause = 50 // 毫秒"
+            },
             "0.0.16": {
                 "en": "edit connection error handling\nadd timout\nreactivate restart after 10 watchdog cycles",
                 "de": "Behandlung von Verbindungsfehlern bearbeiten\nZeitüberschreitung hinzufügen\nNeustart nach 10 Watchdog-Zyklen wieder aktivieren",
