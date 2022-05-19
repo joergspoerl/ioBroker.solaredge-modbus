@@ -101,7 +101,7 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
 
-### **WORK IN PROGRESS**
+### 0.0.20 (2022-05-19)
 using adapterConfig for com_wait_pause
 
 ### 0.0.19 (2022-05-17)

@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.19",
+        "version": "0.0.20",
         "news": {
+            "0.0.20": {
+                "en": "using adapterConfig for com_wait_pause",
+                "de": "Verwenden von adapterConfig für com_wait_pause",
+                "ru": "использование adapterConfig для com_wait_pause",
+                "pt": "usando adapterConfig para com_wait_pause",
+                "nl": "met adapterConfig voor com_wait_pause",
+                "fr": "en utilisant adapterConfig pour com_wait_pause",
+                "it": "usando adapterConfig per com_wait_pause",
+                "es": "usando adapterConfig para com_wait_pause",
+                "pl": "używanie adapterConfig dla com_wait_pause",
+                "zh-cn": "对 com_wait_pause 使用 adapterConfig"
+            },
             "0.0.19": {
                 "en": "add com_wait_pause config\nadd main_loop_pause config",
                 "de": "com_wait_pause config hinzufügen\nmain_loop_pause config hinzufügen",
