@@ -58,6 +58,9 @@ export class SolaredgeTCPModbus {
 				await this.sleep(adapterConfig.com_wait_pause)
 			}
 
+			await this.readHoldingRegisterBlock(client, 40000, 40111 - 40000) // meter 1 block1
+			await this.sleep(adapterConfig.com_wait_pause)
+
 			await this.readHoldingRegisterBlock(client, 0, 111)                  // sun-spec block
 			await this.sleep(adapterConfig.com_wait_pause)
 			await this.readHoldingRegisterBlock(client, 0xE004, 0xE012 - 0xE004) // control block

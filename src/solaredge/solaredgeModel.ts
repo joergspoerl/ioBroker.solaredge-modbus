@@ -320,10 +320,27 @@ export class SolaredgeModel {
 		unit:  "W",
 		role:  "value",
 		type: "number",
-		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 100) as number * Math.pow(10,extractValue("int16be", 1, tmd, 101) as number),
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40100) as number * Math.pow(10,extractValue("int16be", 1, tmd, 40101) as number),
 		value: 0,
 	};
 
+	"dc.I_DC_Power_value":    SolaredgeDataEntry = {
+		descr: "DC Power value",
+		unit:  "W",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40100),
+		value: 0,
+	};
+
+	"dc.I_DC_Power_sf":    SolaredgeDataEntry = {
+		descr: "DC Power value",
+		unit:  "W",
+		role:  "value",
+		type: "number",
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 40101),
+		value: 0,
+	};
 
 	"state.I_Temp_Sink":    SolaredgeDataEntry = {
 		descr: "Heat Sink Temperature",

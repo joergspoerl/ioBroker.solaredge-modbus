@@ -100,6 +100,8 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+fix dc.I_DC_Power unit -> int build
 
 ### 0.0.21 (2022-05-31)
 fix dc.I_DC_Power unit -> int

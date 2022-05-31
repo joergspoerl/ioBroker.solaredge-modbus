@@ -253,7 +253,23 @@ class SolaredgeModel {
             unit: "W",
             role: "value",
             type: "number",
-            readRegister: (tmd) => (0, common_1.extractValue)("uint16be", 1, tmd, 100) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 101)),
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40100) * Math.pow(10, (0, common_1.extractValue)("int16be", 1, tmd, 40101)),
+            value: 0,
+        };
+        this["dc.I_DC_Power_value"] = {
+            descr: "DC Power value",
+            unit: "W",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40100),
+            value: 0,
+        };
+        this["dc.I_DC_Power_sf"] = {
+            descr: "DC Power value",
+            unit: "W",
+            role: "value",
+            type: "number",
+            readRegister: (tmd) => (0, common_1.extractValue)("int16be", 1, tmd, 40101),
             value: 0,
         };
         this["state.I_Temp_Sink"] = {
