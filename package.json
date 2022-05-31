@@ -1,6 +1,6 @@
 {
   "name": "iobroker.solaredge-modbus",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "solaredge-modbus adapter",
   "author": {
     "name": "joerg spoerl",

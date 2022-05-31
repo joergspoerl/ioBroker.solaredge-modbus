@@ -101,7 +101,7 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
 
-### **WORK IN PROGRESS**
+### 0.0.21 (2022-05-31)
 fix dc.I_DC_Power unit -> int
 
 ### 0.0.20 (2022-05-19)

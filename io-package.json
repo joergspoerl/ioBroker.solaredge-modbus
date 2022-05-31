@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.20",
+        "version": "0.0.21",
         "news": {
+            "0.0.21": {
+                "en": "fix dc.I_DC_Power unit -> int",
+                "de": "fix dc.I_DC_Power unit -> int",
+                "ru": "исправить dc.I_DC_Power unit -> int",
+                "pt": "fix dc.I_DC_Power unit -> int",
+                "nl": "fix dc.I_DC_Power unit -> int",
+                "fr": "correction de l'unité dc.I_DC_Power -> int",
+                "it": "fix dc.I_DC_Power unit -> int",
+                "es": "arreglar unidad dc.I_DC_Power -> int",
+                "pl": "napraw dc.I_DC_Power unit -> int",
+                "zh-cn": "修复 dc.I_DC_Power unit -> int"
+            },
             "0.0.20": {
                 "en": "using adapterConfig for com_wait_pause",
                 "de": "Verwenden von adapterConfig für com_wait_pause",
@@ -230,18 +242,6 @@
                 "es": "* Versión inicial\n\n## Licencia\nLicencia MIT\n\nCopyright (c) 2022 joerg spoerl <joerg.spoerl@gmx.de>\n\nPor la presente se concede permiso, sin cargo, a cualquier persona que obtenga una copia\nde este software y los archivos de documentación asociados (el \"Software\"), para tratar\nen el Software sin restricciones, incluidos, entre otros, los derechos\nusar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender\ncopias del Software, y para permitir a las personas a quienes se les\nprovisto para hacerlo, sujeto a las siguientes condiciones:\n\nEl aviso de derechos de autor anterior y este aviso de permiso se incluirán en todos\ncopias o partes sustanciales del Software.\n\nEL SOFTWARE SE PROPORCIONA \"TAL CUAL\", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O\nIMPLÍCITO, INCLUYENDO PERO NO LIMITADO A LAS GARANTÍAS DE COMERCIABILIDAD,\nIDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO VIOLACIÓN. EN NINGÚN CASO LA\nLOS AUTORES O TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES DE CUALQUIER RECLAMACIÓN, DAÑOS U OTROS\nRESPONSABILIDAD, YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O DE OTRA FORMA, DERIVADA DE,\nFUERA DE O EN CONEXIÓN CON EL SOFTWARE O EL USO U OTROS TRATOS EN EL\nSOFTWARE.",
                 "pl": "* Pierwsze wydanie\n\n## Licencja\nLicencja MIT\n\nPrawa autorskie (c) 2022 joerg spoerl <joerg.spoerl@gmx.de>\n\nNiniejszym udziela się nieodpłatnego zezwolenia każdej osobie otrzymującej kopię\ntego oprogramowania i powiązanych plików dokumentacji (\"Oprogramowanie\"), do czynienia\nw Oprogramowaniu bez ograniczeń, w tym bez ograniczeń praw\nużywać, kopiować, modyfikować, łączyć, publikować, rozpowszechniać, udzielać sublicencji i/lub sprzedawać\nkopie Oprogramowania oraz do zezwolenia osobom, dla których Oprogramowanie jest\nw tym celu, z zastrzeżeniem następujących warunków:\n\nPowyższa informacja o prawach autorskich i niniejsza informacja o pozwoleniu będą zawarte we wszystkich\nkopie lub istotne części Oprogramowania.\n\nOPROGRAMOWANIE JEST DOSTARCZANE „TAK JAK JEST”, BEZ JAKICHKOLWIEK GWARANCJI, WYRAŹNYCH LUB\nDOROZUMIANYCH, W TYM MIĘDZY INNYMI GWARANCJE WARTOŚCI HANDLOWEJ,\nPRZYDATNOŚĆ DO OKREŚLONEGO CELU I NIENARUSZALNOŚCI. W ŻADNYM WYPADKU NIE\nAUTORZY LUB POSIADACZE PRAW AUTORSKICH PONOSZĄ ODPOWIEDZIALNOŚĆ ZA WSZELKIE ROSZCZENIA, SZKODY LUB INNE\nODPOWIEDZIALNOŚĆ UMOWNA, CZYNOWA LUB INNA, WYNIKAJĄCA Z,\nNIE ZWIĄZANE Z OPROGRAMOWANIEM LUB Z KORZYSTANIEM LUB INNYMI CZYNNOŚCIAMI W\nOPROGRAMOWANIE.",
                 "zh-cn": "* 初始发行\n\n＃＃ 执照\n麻省理工学院许可证\n\n版权所有 (c) 2022 joerg spoerl <joerg.spoerl@gmx.de>\n\n特此免费授予任何获得副本的人的许可\n本软件和相关文档文件（“软件”），以处理\n在软件中不受限制，包括但不限于权利\n使用、复制、修改、合并、发布、分发、再许可和/或出售\n软件的副本，并允许接收软件的人\n提供这样做，但须符合以下条件：\n\n以上版权声明和本许可声明应包含在所有\n软件的副本或大部分。\n\n本软件按“原样”提供，不提供任何形式的明示或\n暗示，包括但不限于对适销性的保证，\n适用于特定目的和不侵权。在任何情况下均不得\n作者或版权持有人应对任何索赔、损害或其他\n责任，无论是在合同诉讼、侵权行为还是其他方面，由以下原因引起：\n与本软件或本软件的使用或其他交易无关或与之相关\n软件。"
-            },
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
             }
         },
         "title": "solaredge-modbus",
