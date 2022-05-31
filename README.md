@@ -101,6 +101,9 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
 
+### **WORK IN PROGRESS**
+fix dc.I_DC_Power unit -> int
+
 ### 0.0.20 (2022-05-19)
 using adapterConfig for com_wait_pause
 

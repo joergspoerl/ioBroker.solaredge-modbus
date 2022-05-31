@@ -320,7 +320,7 @@ export class SolaredgeModel {
 		unit:  "W",
 		role:  "value",
 		type: "number",
-		readRegister:  (tmd: Buffer) =>  extractValue("uint16be", 1, tmd, 100) as number * Math.pow(10,extractValue("int16be", 1, tmd, 101) as number),
+		readRegister:  (tmd: Buffer) =>  extractValue("int16be", 1, tmd, 100) as number * Math.pow(10,extractValue("int16be", 1, tmd, 101) as number),
 		value: 0,
 	};
 
