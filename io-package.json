@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.22",
+        "version": "0.0.23",
         "news": {
+            "0.0.23": {
+                "en": "debug code removed",
+                "de": "Debug-Code entfernt",
+                "ru": "отладочный код удален",
+                "pt": "código de depuração removido",
+                "nl": "debug-code verwijderd",
+                "fr": "code de débogage supprimé",
+                "it": "codice di debug rimosso",
+                "es": "código de depuración eliminado",
+                "pl": "usunięto kod debugowania",
+                "zh-cn": "调试代码已删除"
+            },
             "0.0.22": {
                 "en": "fix dc.I_DC_Power unit -> int build",
                 "de": "fix dc.I_DC_Power unit -> int build",
@@ -230,18 +242,6 @@
                 "es": "corregir initObjects",
                 "pl": "napraw initObjects",
                 "zh-cn": "修复初始化对象"
-            },
-            "0.0.3": {
-                "en": "extend data model with states",
-                "de": "Datenmodell um Zustände erweitern",
-                "ru": "расширить модель данных с состояниями",
-                "pt": "estender modelo de dados com estados",
-                "nl": "datamodel uitbreiden met toestanden",
-                "fr": "étendre le modèle de données avec des états",
-                "it": "estendere il modello di dati con gli stati",
-                "es": "extender el modelo de datos con estados",
-                "pl": "rozszerzyć model danych o stany",
-                "zh-cn": "用状态扩展数据模型"
             }
         },
         "title": "solaredge-modbus",

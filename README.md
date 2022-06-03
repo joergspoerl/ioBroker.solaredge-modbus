@@ -101,7 +101,7 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
 
-### **WORK IN PROGRESS**
+### 0.0.23 (2022-06-03)
 debug code removed
 
 ### 0.0.22 (2022-05-31)
