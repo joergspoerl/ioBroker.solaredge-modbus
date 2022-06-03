@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.23",
+        "version": "0.0.24",
         "news": {
+            "0.0.24": {
+                "en": "debug code removed",
+                "de": "Debug-Code entfernt",
+                "ru": "отладочный код удален",
+                "pt": "código de depuração removido",
+                "nl": "debug-code verwijderd",
+                "fr": "code de débogage supprimé",
+                "it": "codice di debug rimosso",
+                "es": "código de depuración eliminado",
+                "pl": "usunięto kod debugowania",
+                "zh-cn": "调试代码已删除"
+            },
             "0.0.23": {
                 "en": "debug code removed",
                 "de": "Debug-Code entfernt",
@@ -230,18 +242,6 @@
                 "es": "arreglar archivos de compilación",
                 "pl": "napraw pliki kompilacji",
                 "zh-cn": "修复构建文件"
-            },
-            "0.0.4": {
-                "en": "fix initObjects",
-                "de": "initObjects reparieren",
-                "ru": "исправить initObjects",
-                "pt": "corrigir initObjects",
-                "nl": "repareer initObjects",
-                "fr": "réparer initObjects",
-                "it": "correggere initObjects",
-                "es": "corregir initObjects",
-                "pl": "napraw initObjects",
-                "zh-cn": "修复初始化对象"
             }
         },
         "title": "solaredge-modbus",
