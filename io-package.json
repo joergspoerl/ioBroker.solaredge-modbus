@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "solaredge-modbus",
-        "version": "0.0.24",
+        "version": "0.0.25",
         "news": {
+            "0.0.25": {
+                "en": "fix I_AC_Energy_WH scaling factor\nadd connection_timout parameter",
+                "de": "fix I_AC_Energy_WH Skalierungsfaktor\nverbindungs_timout parameter",
+                "ru": "исправить I_AC_Energy_WH фактор масштабирования\nдобавить параметр connect_timout",
+                "pt": "corrigir o fator de dimensionamento I_AC_Energy_WH\nadicionar parâmetro connection_timout",
+                "nl": "vertaling:\nvoeg connectie parameter toe",
+                "fr": "correction du facteur d'échelle I_AC_Energy_WH\najouter le paramètre connection_timout",
+                "it": "fix I_AC_Energy_WH fattore di scaling\naggiungere il parametro connection_timout",
+                "es": "fijar el factor de escalado I_AC_Energy_WH\nañadir connection_timout parámetro",
+                "pl": "i_AC_Energy_WH (ang.)\ndodaje parametr połączenia_timout",
+                "zh-cn": "fix I_AC_Energy_WH扩大因素\n增加联系"
+            },
             "0.0.24": {
                 "en": "debug code removed",
                 "de": "Debug-Code entfernt",
@@ -230,18 +242,6 @@
                 "es": "cambiar la lógica de lectura y escritura modbus",
                 "pl": "zmień modbus odczyt logikę zapisu",
                 "zh-cn": "更改 modbus 读写逻辑"
-            },
-            "0.0.5": {
-                "en": "fix build files",
-                "de": "Build-Dateien reparieren",
-                "ru": "исправить файлы сборки",
-                "pt": "corrigir arquivos de compilação",
-                "nl": "build-bestanden repareren",
-                "fr": "réparer les fichiers de construction",
-                "it": "correggere i file di build",
-                "es": "arreglar archivos de compilación",
-                "pl": "napraw pliki kompilacji",
-                "zh-cn": "修复构建文件"
             }
         },
         "title": "solaredge-modbus",

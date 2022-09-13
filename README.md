@@ -100,7 +100,7 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 0.0.25 (2022-09-13)
 fix I_AC_Energy_WH scaling factor
 add connection_timout parameter
 
