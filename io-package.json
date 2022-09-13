@@ -298,8 +298,9 @@
     "native": {
         "option1": true,
         "option2": "42",
-        "com_wait_pause": 50,
-        "main_loop_pause": 500
+        "com_wait_pause": 200,
+        "main_loop_pause": 1000,
+        "connection_timeout": 1000
     },
     "objects": [],
     "instanceObjects": []

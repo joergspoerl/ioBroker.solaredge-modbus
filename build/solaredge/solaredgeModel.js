@@ -229,7 +229,7 @@ class SolaredgeModel {
             unit: "Wh",
             role: "value",
             type: "number",
-            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 93) * Math.pow(10, (0, common_1.extractValue)("uint16be", 1, tmd, 94)),
+            readRegister: (tmd) => (0, common_1.extractValue)("uint32be", 2, tmd, 93) * Math.pow(10, (0, common_1.extractValue)("uint16be", 1, tmd, 95)),
             value: 0,
         };
         this["dc.I_DC_Current"] = {

@@ -100,7 +100,7 @@ export class SolaredgeTCPModbus {
 			const timeoutRef = setTimeout( () => {
 				this.log.error("ERROR: Connection timeout")
 				reject("ERROR: Connection timeout")
-			}, 1000)
+			}, adapterConfig.connection_timeout)
 
 
 			try {
@@ -145,7 +145,7 @@ export class SolaredgeTCPModbus {
 					"port": config.port,
 					// "autoReconnect": false,
 					// "reconnectTimeout": 4000,
-					"timeout": 1000,
+					"timeout": adapterConfig.connection_timeout,
 				})
 
 			} catch (Exception) {

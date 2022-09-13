@@ -9,6 +9,7 @@ declare global {
 			unitId: number;
 			com_wait_pause: number;
 			main_loop_pause: number;
+			connection_timeout: number
 		}
 	}
 }
